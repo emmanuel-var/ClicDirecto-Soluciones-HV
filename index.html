@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClicDirecto Soluciones HV | Desarrollo Web y Apps para tu Negocio</title>
+  <meta name="description" content="Transformamos tu negocio local en un ecosistema digital rentable. Landing Pages, sitios web, catálogos digitales y apps móviles offline-first sin comisiones.">
+  <meta name="keywords" content="desarrollo web, apps móviles, landing page, catálogo digital, SEO local, México">
+  <meta name="author" content="ClicDirecto Soluciones HV">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ClicDirecto Soluciones HV | Digitaliza tu Negocio">
+  <meta property="og:description" content="Desde Landing Pages rápidas hasta Apps Móviles Offline-First sin comisiones. Atrae más clientes y vende más.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVEGACIÓN ============ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="nav__logo" aria-label="ClicDirecto Soluciones HV - Inicio">
+        <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="url(#logoGrad)"/>
+          <path d="M13 12 L27 20 L19.5 22.5 L17 30 Z" fill="#fff"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop stop-color="#4F46E5"/>
+              <stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>ClicDirecto <strong>Soluciones HV</strong></span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#servicios" class="nav__link">Servicios</a></li>
+        <li><a href="#portafolio" class="nav__link">Portafolio</a></li>
+        <li><a href="#paquetes" class="nav__link">Paquetes</a></li>
+        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+        <li><a href="#paquetes" class="nav__cta">Cotizar</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content reveal">
+        <span class="hero__badge">🚀 Digitalización para negocios locales</span>
+        <h1 class="hero__title">Transformamos tu Negocio Local en un <span class="hero__highlight">Ecosistema Digital Rentable.</span></h1>
+        <p class="hero__subtitle">Desde Landing Pages rápidas hasta Aplicaciones Móviles Offline-First sin comisiones. Atrae más clientes, posiciona tu marca y vende más.</p>
+        <div class="hero__actions">
+          <a href="#paquetes" class="btn btn--accent btn--lg">Ver Paquetes</a>
+          <a href="#servicios" class="btn btn--ghost btn--lg">Conocer Servicios</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat"><strong>0%</strong><span>Comisiones por venta</span></div>
+          <div class="hero__stat"><strong>100%</strong><span>Tuyo: código y dominio</span></div>
+          <div class="hero__stat"><strong>24/7</strong><span>Tu negocio en línea</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="section services" id="servicios">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag">Servicios</span>
+          <h2 class="section__title">Todo lo que tu negocio necesita para vender en digital</h2>
+          <p class="section__desc">Soluciones tecnológicas pensadas para negocios reales: rápidas, económicas y sin ataduras.</p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 5h4"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+            </div>
+            <h3>Desarrollo de Apps Móviles</h3>
+            <p>Entrega de código fuente (.ZIP) y archivo instalable (.APK) sin depender de Google Play. Arquitectura Offline-First, ideal para zonas sin internet.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M6 6h.01M9 6h.01"/><path d="M8 21h8"/></svg>
+            </div>
+            <h3>Sitios Web y Landing Pages</h3>
+            <p>Páginas ultrarrápidas y optimizadas para convertir visitantes en clientes, con diseño moderno adaptado a cualquier dispositivo.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M9 7h6M9 11h4"/></svg>
+            </div>
+            <h3>Catálogos Digitales</h3>
+            <p>Muestra tus productos con fotos, precios y descripciones en un catálogo atractivo que tus clientes pueden ver desde su celular.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.9-8.6 6 6 0 1 0-11.1 3.2"/><path d="M12 13v8M8.5 17.5 12 21l3.5-3.5"/></svg>
+            </div>
+            <h3>Alojamiento Gratuito Permanente</h3>
+            <p>Tu sitio hospedado gratis de por vida con tecnología estática de alto rendimiento, más conexión de tu dominio propio.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h3>SEO y Google Maps</h3>
+            <p>Optimización para buscadores y configuración de tu Perfil de Google Maps para que te encuentren primero en tu zona.</p>
+          </article>
+
+          <article class="service-card service-card--cta reveal">
+            <h3>¿No sabes qué necesitas?</h3>
+            <p>Cuéntanos sobre tu negocio y te recomendamos la solución exacta, sin compromiso.</p>
+            <a href="#contacto" class="btn btn--accent">Asesoría gratis</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTAFOLIO ============ -->
+    <section class="section portfolio" id="portafolio">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag">Portafolio</span>
+          <h2 class="section__title">Proyectos que ya están vendiendo</h2>
+          <p class="section__desc">Ejemplos reales de lo que podemos construir para tu negocio.</p>
+        </header>
+
+        <div class="portfolio__grid">
+          <!-- Reemplaza cada .portfolio-card__img por <img src="assets/proyecto1.jpg" alt="..."> cuando tengas capturas -->
+          <article class="portfolio-card reveal">
+            <div class="portfolio-card__img portfolio-card__img--1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+              <span>Captura del proyecto</span>
+            </div>
+            <div class="portfolio-card__body">
+              <span class="portfolio-card__tag">Catálogo Digital</span>
+              <h3>Catálogo Digital para Ferretería</h3>
+              <p>Más de 200 productos organizados por categoría con búsqueda rápida.</p>
+              <a href="#contacto" class="btn btn--outline btn--sm">Ver Demo</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal">
+            <div class="portfolio-card__img portfolio-card__img--2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+              <span>Captura del proyecto</span>
+            </div>
+            <div class="portfolio-card__body">
+              <span class="portfolio-card__tag">App Móvil</span>
+              <h3>App Móvil de Ventas</h3>
+              <p>Registro de pedidos offline con sincronización automática al recuperar señal.</p>
+              <a href="#contacto" class="btn btn--outline btn--sm">Ver Demo</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal">
+            <div class="portfolio-card__img portfolio-card__img--3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20"/></svg>
+              <span>Captura del proyecto</span>
+            </div>
+            <div class="portfolio-card__body">
+              <span class="portfolio-card__tag">Landing Page</span>
+              <h3>Landing Page para Taquería</h3>
+              <p>Menú digital, ubicación y botón de pedidos por WhatsApp en un solo clic.</p>
+              <a href="#contacto" class="btn btn--outline btn--sm">Ver Demo</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal">
+            <div class="portfolio-card__img portfolio-card__img--4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>Captura del proyecto</span>
+            </div>
+            <div class="portfolio-card__body">
+              <span class="portfolio-card__tag">Sitio Web + SEO</span>
+              <h3>Sitio Web para Estética</h3>
+              <p>Multipágina con agenda de citas y posicionamiento en Google Maps.</p>
+              <a href="#contacto" class="btn btn--outline btn--sm">Ver Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAQUETES ============ -->
+    <section class="section pricing" id="paquetes">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag">Paquetes</span>
+          <h2 class="section__title">Elige el plan perfecto para tu negocio</h2>
+          <p class="section__desc">Pago único. Sin mensualidades ocultas, sin comisiones por venta.</p>
+        </header>
+
+        <div class="pricing__grid">
+          <!-- Paquete 1 -->
+          <article class="price-card reveal">
+            <h3 class="price-card__name">Presencia Express</h3>
+            <p class="price-card__desc">Ideal para validación rápida. El gancho perfecto para negocios que quieren algo económico hoy mismo.</p>
+            <div class="price-card__price">
+              <span class="price-card__amount">$1,499</span>
+              <span class="price-card__currency">MXN</span>
+            </div>
+            <p class="price-card__note">Pago único + costo de dominio</p>
+            <ul class="price-card__features">
+              <li>Landing Page optimizada</li>
+              <li>Botón flotante de contacto</li>
+              <li>Alojamiento gratis (GitHub Pages)</li>
+              <li>Conexión de dominio propio</li>
+            </ul>
+            <a href="#contacto" class="btn btn--outline btn--block">Cotizar este paquete</a>
+          </article>
+
+          <!-- Paquete 2 (destacado) -->
+          <article class="price-card price-card--featured reveal">
+            <span class="price-card__badge">⭐ Más Vendido</span>
+            <h3 class="price-card__name">Negocio Profesional</h3>
+            <p class="price-card__desc">Para negocios con catálogo que buscan posicionarse localmente.</p>
+            <div class="price-card__price">
+              <span class="price-card__amount">$3,499</span>
+              <span class="price-card__currency">MXN</span>
+            </div>
+            <p class="price-card__note">Pago único + costo de dominio</p>
+            <ul class="price-card__features">
+              <li><strong>Todo lo del Paquete 1</strong></li>
+              <li>Sitio Web Multipágina</li>
+              <li>Catálogo Digital visual</li>
+              <li>Optimización Google Maps</li>
+              <li>SEO Básico</li>
+              <li>Opción autogestionable en WordPress <small>(hosting pagado por el cliente)</small></li>
+            </ul>
+            <a href="#contacto" class="btn btn--accent btn--block">Cotizar este paquete</a>
+          </article>
+
+          <!-- Paquete 3 -->
+          <article class="price-card reveal">
+            <h3 class="price-card__name">Ecosistema Total</h3>
+            <p class="price-card__desc">Para empresas que quieren una herramienta directa de ventas.</p>
+            <div class="price-card__price">
+              <span class="price-card__amount">$7,999</span>
+              <span class="price-card__currency">MXN</span>
+            </div>
+            <p class="price-card__note">Pago único + costo de dominio</p>
+            <ul class="price-card__features">
+              <li><strong>Todo lo de los Paquetes 1 y 2</strong></li>
+              <li>App Móvil Personalizada</li>
+              <li>Arquitectura Offline-First <small>(para zonas con mala señal)</small></li>
+              <li>Código fuente (.ZIP)</li>
+              <li>Archivo instalable (.APK) sin pasar por tiendas</li>
+            </ul>
+            <a href="#contacto" class="btn btn--outline btn--block">Cotizar este paquete</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO / CTA FINAL ============ -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="contact__box reveal">
+          <h2>¿Listo para digitalizar tu negocio?</h2>
+          <p>Escríbenos hoy y recibe una cotización sin compromiso. Respondemos en menos de 24 horas.</p>
+          <!-- ⚠️ PLACEHOLDER: reemplaza 521XXXXXXXXXX con tu número de WhatsApp (52 + 10 dígitos) -->
+          <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Cotizar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <p class="footer__brand">ClicDirecto <strong>Soluciones HV</strong></p>
+        <p class="footer__tagline">Agencia de desarrollo de software y digitalización para negocios.</p>
+      </div>
+      <nav class="footer__links" aria-label="Enlaces legales">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#" onclick="return false;">Aviso de Privacidad</a>
+        <a href="#" onclick="return false;">Términos y Condiciones</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> ClicDirecto Soluciones HV. Todos los derechos reservados.</p>
+      <p>Diseñado y alojado con tecnología estática de alto rendimiento. ⚡</p>
+    </div>
+  </footer>
+
+  <!-- ============ BOTÓN FLOTANTE MULTICANAL ============ -->
+  <div class="fab" id="fab">
+    <!-- ⚠️ PLACEHOLDERS: reemplaza los href con tus enlaces reales -->
+    <div class="fab__menu" id="fabMenu" aria-hidden="true">
+      <a href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener" class="fab__item fab__item--wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://instagram.com/tu_usuario" target="_blank" rel="noopener" class="fab__item fab__item--ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://facebook.com/tu_pagina" target="_blank" rel="noopener" class="fab__item fab__item--fb" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://tiktok.com/@tu_usuario" target="_blank" rel="noopener" class="fab__item fab__item--tt" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        <span>TikTok</span>
+      </a>
+    </div>
+    <button class="fab__btn" id="fabBtn" aria-expanded="false" aria-controls="fabMenu">
+      <svg class="fab__icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <svg class="fab__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      <span class="fab__label">Cotizar aquí</span>
+    </button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
