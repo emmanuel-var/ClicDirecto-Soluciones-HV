@@ -4,82 +4,61 @@
 (function () {
   'use strict';
 
-  /* ---------- 1. Header sticky con sombra al hacer scroll ---------- */
+  /* ---------- 1. AOS (Animate On Scroll) ---------- */
+  if (window.AOS) {
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 60,
+    });
+  }
+
+  /* ---------- 2. Header sticky con glassmorphism al hacer scroll ---------- */
   const header = document.getElementById('header');
-  const onScroll = () => header.classList.toggle('header--scrolled', window.scrollY > 10);
+  const HEADER_SCROLLED_CLASSES = [
+    'bg-white/80', 'backdrop-blur-xl', 'shadow-soft', 'border-b', 'border-slate-100',
+  ];
+  const onScroll = () => {
+    const scrolled = window.scrollY > 10;
+    header.classList.toggle('bg-white/80', scrolled);
+    header.classList.toggle('backdrop-blur-xl', scrolled);
+    header.classList.toggle('shadow-soft', scrolled);
+    header.classList.toggle('border-b', scrolled);
+    header.classList.toggle('border-slate-100', scrolled);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 2. Menú móvil (hamburguesa) ---------- */
+  /* ---------- 3. Menú móvil (hamburguesa) ---------- */
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
+  const iconMenuOpen = document.getElementById('iconMenuOpen');
+  const iconMenuClose = document.getElementById('iconMenuClose');
 
-  navToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
+  const setNavOpen = (isOpen) => {
+    navMenu.classList.toggle('translate-x-full', !isOpen);
+    navMenu.classList.toggle('translate-x-0', isOpen);
+    navMenu.classList.toggle('shadow-soft-lg', isOpen);
+    iconMenuOpen.classList.toggle('hidden', isOpen);
+    iconMenuClose.classList.toggle('hidden', !isOpen);
     navToggle.setAttribute('aria-expanded', String(isOpen));
     navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  };
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.contains('translate-x-full');
+    setNavOpen(isOpen);
   });
 
   // Cierra el menú al hacer clic en un enlace
   navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => setNavOpen(false));
   });
 
-  /* ---------- 3. Botón flotante multicanal ---------- */
-  const fab = document.getElementById('fab');
-  const fabBtn = document.getElementById('fabBtn');
-  const fabMenu = document.getElementById('fabMenu');
-
-  fabBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = fab.classList.toggle('open');
-    fabBtn.setAttribute('aria-expanded', String(isOpen));
-    fabMenu.setAttribute('aria-hidden', String(!isOpen));
-  });
-
-  // Cierra el menú flotante al hacer clic fuera o presionar Escape
-  document.addEventListener('click', (e) => {
-    if (fab.classList.contains('open') && !fab.contains(e.target)) {
-      fab.classList.remove('open');
-      fabBtn.setAttribute('aria-expanded', 'false');
-      fabMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && fab.classList.contains('open')) {
-      fab.classList.remove('open');
-      fabBtn.setAttribute('aria-expanded', 'false');
-      fabMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  /* ---------- 4. Animaciones de entrada (IntersectionObserver) ---------- */
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    reveals.forEach((el) => observer.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add('visible'));
-  }
-
-  /* ---------- 5. Resaltar enlace activo según la sección visible ---------- */
+  /* ---------- 4. Resaltar enlace activo según la sección visible ---------- */
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav__link');
+  const navLinks = document.querySelectorAll('.nav-link');
   if ('IntersectionObserver' in window && sections.length) {
     const spy = new IntersectionObserver(
       (entries) => {
@@ -99,7 +78,7 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* ---------- 6. Año dinámico en el footer ---------- */
+  /* ---------- 5. Año dinámico en el footer ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();

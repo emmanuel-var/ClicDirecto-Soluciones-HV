@@ -7,6 +7,7 @@
   <meta name="description" content="Transformamos tu negocio local en un ecosistema digital rentable. Landing Pages, sitios web, catálogos digitales y apps móviles offline-first sin comisiones.">
   <meta name="keywords" content="desarrollo web, apps móviles, landing page, catálogo digital, SEO local, México">
   <meta name="author" content="ClicDirecto Soluciones HV">
+  <meta name="theme-color" content="#0f172a">
 
   <!-- Open Graph -->
   <meta property="og:title" content="ClicDirecto Soluciones HV | Digitaliza tu Negocio">
@@ -16,20 +17,23 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="bg-white text-slate-600">
 
   <!-- ============ HEADER / NAVEGACIÓN ============ -->
-  <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#inicio" class="nav__logo" aria-label="ClicDirecto Soluciones HV - Inicio">
-        <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <header class="fixed inset-x-0 top-0 z-50 h-20 transition-all duration-300" id="header">
+    <nav class="mx-auto flex h-full max-w-7xl items-center justify-between px-5 lg:px-8">
+      <a href="#inicio" class="flex items-center gap-2.5 whitespace-nowrap text-sm font-semibold text-ink" aria-label="ClicDirecto Soluciones HV - Inicio">
+        <svg class="h-9 w-9 flex-shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="40" height="40" rx="10" fill="url(#logoGrad)"/>
           <path d="M13 12 L27 20 L19.5 22.5 L17 30 Z" fill="#fff"/>
           <defs>
@@ -39,162 +43,251 @@
             </linearGradient>
           </defs>
         </svg>
-        <span>ClicDirecto <strong>Soluciones HV</strong></span>
+        <span class="text-base">ClicDirecto <strong class="font-extrabold text-primary">Soluciones HV</strong></span>
       </a>
 
-      <ul class="nav__menu" id="navMenu">
-        <li><a href="#servicios" class="nav__link">Servicios</a></li>
-        <li><a href="#portafolio" class="nav__link">Portafolio</a></li>
-        <li><a href="#paquetes" class="nav__link">Paquetes</a></li>
-        <li><a href="#contacto" class="nav__link">Contacto</a></li>
-        <li><a href="#paquetes" class="nav__cta">Cotizar</a></li>
-      </ul>
+      <div class="fixed inset-0 top-20 z-40 flex translate-x-full flex-col gap-1 overflow-y-auto bg-white/95 p-6 backdrop-blur-xl transition-transform duration-300 ease-out lg:static lg:z-auto lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:gap-1 lg:bg-transparent lg:p-0 lg:backdrop-blur-none" id="navMenu">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#portafolio" class="nav-link">Portafolio</a>
+        <a href="#paquetes" class="nav-link">Paquetes</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="#paquetes" class="btn-accent ml-0 mt-4 lg:ml-3 lg:mt-0 lg:px-6 lg:py-2.5 lg:text-sm">Cotizar</a>
+      </div>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-        <span></span><span></span><span></span>
+      <button class="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-ink lg:hidden" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <svg class="h-6 w-6" id="iconMenuOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        <svg class="hidden h-6 w-6" id="iconMenuClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6l12 12"/></svg>
       </button>
     </nav>
   </header>
 
+  <!-- ============ PÍLDORA SOCIAL LATERAL (glassmorphism) ============ -->
+  <aside class="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-1 rounded-l-2xl border border-white/10 border-r-0 bg-ink/40 p-1.5 shadow-soft-lg backdrop-blur-xl" aria-label="Redes sociales">
+    <a href="https://wa.me/525610853003?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20paquetes" target="_blank" rel="noopener" class="group flex h-10 w-10 items-center justify-center rounded-xl text-white/80 transition-all hover:bg-[#25d366]/20 hover:text-[#25d366] sm:h-11 sm:w-11" aria-label="WhatsApp">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
+    </a>
+    <a href="https://www.instagram.com/clicdirectosolucioneshv?utm_source=qr&amp;igsh=MWVxMmVxMmJ6NXF6cw==" target="_blank" rel="noopener" class="group flex h-10 w-10 items-center justify-center rounded-xl text-white/80 transition-all hover:bg-[#e1306c]/20 hover:text-[#e1306c] sm:h-11 sm:w-11" aria-label="Instagram">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/share/1DHpfVHeWV/" target="_blank" rel="noopener" class="group flex h-10 w-10 items-center justify-center rounded-xl text-white/80 transition-all hover:bg-[#1877f2]/20 hover:text-[#1877f2] sm:h-11 sm:w-11" aria-label="Facebook">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@clicdirecto.soluc" target="_blank" rel="noopener" class="group flex h-10 w-10 items-center justify-center rounded-xl text-white/80 transition-all hover:bg-white/20 hover:text-white sm:h-11 sm:w-11" aria-label="TikTok">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+    </a>
+  </aside>
+
   <main>
     <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="container hero__content reveal">
-        <span class="hero__badge">🚀 Digitalización para negocios locales</span>
-        <h1 class="hero__title">Transformamos tu Negocio Local en un <span class="hero__highlight">Ecosistema Digital Rentable.</span></h1>
-        <p class="hero__subtitle">Desde Landing Pages rápidas hasta Aplicaciones Móviles Offline-First sin comisiones. Atrae más clientes, posiciona tu marca y vende más.</p>
-        <div class="hero__actions">
-          <a href="#paquetes" class="btn btn--accent btn--lg">Ver Paquetes</a>
-          <a href="#servicios" class="btn btn--ghost btn--lg">Conocer Servicios</a>
+    <section class="relative flex min-h-screen items-center overflow-hidden bg-hero-gradient pb-16 pt-32 text-white" id="inicio">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="absolute -right-24 top-10 h-96 w-96 rounded-full bg-violet/30 blur-3xl"></div>
+        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-accent/20 blur-3xl"></div>
+      </div>
+
+      <div class="container relative mx-auto max-w-4xl px-5 text-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur-sm" data-aos="fade-down">
+          <svg class="h-4 w-4 text-accent-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+          Digitalización para negocios locales
+        </span>
+
+        <h1 class="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl" data-aos="fade-up" data-aos-delay="100">
+          Transformamos tu Negocio Local en un
+          <span class="bg-gradient-to-r from-accent-light via-emerald-300 to-accent-light bg-clip-text text-transparent">Ecosistema Digital Rentable.</span>
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-300" data-aos="fade-up" data-aos-delay="200">
+          Desde Landing Pages rápidas hasta Aplicaciones Móviles Offline-First sin comisiones. Atrae más clientes, posiciona tu marca y vende más.
+        </p>
+
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="300">
+          <a href="#paquetes" class="btn-accent px-8 py-4 text-base">Ver Paquetes</a>
+          <a href="#servicios" class="btn-outline-light px-8 py-4 text-base">Conocer Servicios</a>
         </div>
-        <div class="hero__stats">
-          <div class="hero__stat"><strong>0%</strong><span>Comisiones por venta</span></div>
-          <div class="hero__stat"><strong>100%</strong><span>Tuyo: código y dominio</span></div>
-          <div class="hero__stat"><strong>24/7</strong><span>Tu negocio en línea</span></div>
+
+        <div class="mx-auto mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-10 sm:gap-10" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex flex-col">
+            <strong class="text-2xl font-extrabold text-accent-light sm:text-3xl">0%</strong>
+            <span class="text-xs text-slate-400">Comisiones por venta</span>
+          </div>
+          <div class="flex flex-col">
+            <strong class="text-2xl font-extrabold text-accent-light sm:text-3xl">100%</strong>
+            <span class="text-xs text-slate-400">Tuyo: código y dominio</span>
+          </div>
+          <div class="flex flex-col">
+            <strong class="text-2xl font-extrabold text-accent-light sm:text-3xl">24/7</strong>
+            <span class="text-xs text-slate-400">Tu negocio en línea</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ SERVICIOS ============ -->
-    <section class="section services" id="servicios">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__tag">Servicios</span>
-          <h2 class="section__title">Todo lo que tu negocio necesita para vender en digital</h2>
-          <p class="section__desc">Soluciones tecnológicas pensadas para negocios reales: rápidas, económicas y sin ataduras.</p>
+    <section class="bg-slate-50 py-20 lg:py-28" id="servicios">
+      <div class="container mx-auto max-w-7xl px-5 lg:px-8">
+        <header class="mx-auto mb-14 max-w-2xl text-center" data-aos="fade-up">
+          <span class="section-tag">Servicios</span>
+          <h2 class="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">Todo lo que tu negocio necesita para vender en digital</h2>
+          <p class="mt-3 text-slate-500">Soluciones tecnológicas pensadas para negocios reales: rápidas, económicas y sin ataduras.</p>
         </header>
 
-        <div class="services__grid">
-          <article class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 5h4"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-transparent hover:shadow-soft-lg" data-aos="fade-up">
+            <div class="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-violet/10 text-primary transition-transform duration-300 group-hover:scale-110">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
             </div>
-            <h3>Desarrollo de Apps Móviles</h3>
-            <p>Entrega de código fuente (.ZIP) y archivo instalable (.APK) sin depender de Google Play. Arquitectura Offline-First, ideal para zonas sin internet.</p>
+            <h3 class="mb-2 text-lg font-bold text-ink">Desarrollo de Apps Móviles</h3>
+            <p class="text-sm leading-relaxed text-slate-500">Entrega de código fuente (.ZIP) y archivo instalable (.APK) sin depender de Google Play. Arquitectura Offline-First, ideal para zonas sin internet.</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M6 6h.01M9 6h.01"/><path d="M8 21h8"/></svg>
+          <article class="group rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-transparent hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-violet/10 text-primary transition-transform duration-300 group-hover:scale-110">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
             </div>
-            <h3>Sitios Web y Landing Pages</h3>
-            <p>Páginas ultrarrápidas y optimizadas para convertir visitantes en clientes, con diseño moderno adaptado a cualquier dispositivo.</p>
+            <h3 class="mb-2 text-lg font-bold text-ink">Sitios Web y Landing Pages</h3>
+            <p class="text-sm leading-relaxed text-slate-500">Páginas ultrarrápidas y optimizadas para convertir visitantes en clientes, con diseño moderno adaptado a cualquier dispositivo.</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M9 7h6M9 11h4"/></svg>
+          <article class="group rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-transparent hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-violet/10 text-primary transition-transform duration-300 group-hover:scale-110">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"/></svg>
             </div>
-            <h3>Catálogos Digitales</h3>
-            <p>Muestra tus productos con fotos, precios y descripciones en un catálogo atractivo que tus clientes pueden ver desde su celular.</p>
+            <h3 class="mb-2 text-lg font-bold text-ink">Catálogos Digitales</h3>
+            <p class="text-sm leading-relaxed text-slate-500">Muestra tus productos con fotos, precios y descripciones en un catálogo atractivo que tus clientes pueden ver desde su celular.</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.9-8.6 6 6 0 1 0-11.1 3.2"/><path d="M12 13v8M8.5 17.5 12 21l3.5-3.5"/></svg>
+          <article class="group rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-transparent hover:shadow-soft-lg" data-aos="fade-up">
+            <div class="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-violet/10 text-primary transition-transform duration-300 group-hover:scale-110">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z"/></svg>
             </div>
-            <h3>Alojamiento Gratuito Permanente</h3>
-            <p>Tu sitio hospedado gratis de por vida con tecnología estática de alto rendimiento, más conexión de tu dominio propio.</p>
+            <h3 class="mb-2 text-lg font-bold text-ink">Alojamiento Gratuito Permanente</h3>
+            <p class="text-sm leading-relaxed text-slate-500">Tu sitio hospedado gratis de por vida con tecnología estática de alto rendimiento, más conexión de tu dominio propio.</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <article class="group rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-transparent hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-violet/10 text-primary transition-transform duration-300 group-hover:scale-110">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
             </div>
-            <h3>SEO y Google Maps</h3>
-            <p>Optimización para buscadores y configuración de tu Perfil de Google Maps para que te encuentren primero en tu zona.</p>
+            <h3 class="mb-2 text-lg font-bold text-ink">SEO y Google Maps</h3>
+            <p class="text-sm leading-relaxed text-slate-500">Optimización para buscadores y configuración de tu Perfil de Google Maps para que te encuentren primero en tu zona.</p>
           </article>
 
-          <article class="service-card service-card--cta reveal">
-            <h3>¿No sabes qué necesitas?</h3>
-            <p>Cuéntanos sobre tu negocio y te recomendamos la solución exacta, sin compromiso.</p>
-            <a href="#contacto" class="btn btn--accent">Asesoría gratis</a>
+          <article class="flex flex-col items-start justify-center gap-3 rounded-3xl bg-gradient-to-br from-primary to-violet p-8 text-white shadow-primary-glow" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-lg font-bold text-white">¿No sabes qué necesitas?</h3>
+            <p class="text-sm text-indigo-100">Cuéntanos sobre tu negocio y te recomendamos la solución exacta, sin compromiso.</p>
+            <a href="#contacto" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold text-primary transition-all hover:-translate-y-0.5 hover:bg-slate-100">Asesoría gratis</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ============ PORTAFOLIO ============ -->
-    <section class="section portfolio" id="portafolio">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__tag">Portafolio</span>
-          <h2 class="section__title">Proyectos que ya están vendiendo</h2>
-          <p class="section__desc">Ejemplos reales de lo que podemos construir para tu negocio.</p>
+    <section class="py-20 lg:py-28" id="portafolio">
+      <div class="container mx-auto max-w-7xl px-5 lg:px-8">
+        <header class="mx-auto mb-14 max-w-2xl text-center" data-aos="fade-up">
+          <span class="section-tag">Portafolio</span>
+          <h2 class="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">Proyectos que ya están vendiendo</h2>
+          <p class="mt-3 text-slate-500">Ejemplos reales de lo que podemos construir para tu negocio.</p>
         </header>
 
-        <div class="portfolio__grid">
-          <!-- Reemplaza cada .portfolio-card__img por <img src="assets/proyecto1.jpg" alt="..."> cuando tengas capturas -->
-          <article class="portfolio-card reveal">
-            <div class="portfolio-card__img portfolio-card__img--1">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
-              <span>Captura del proyecto</span>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Reemplaza el contenido del mockup por <img> cuando tengas capturas reales -->
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-soft-lg" data-aos="fade-up">
+            <div class="bg-slate-100 p-4">
+              <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-inner">
+                <div class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-3 py-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-red-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-300"></span>
+                </div>
+                <div class="flex aspect-video flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary to-violet text-white/90">
+                  <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"/></svg>
+                  <span class="text-xs font-semibold">Vista previa</span>
+                </div>
+              </div>
             </div>
-            <div class="portfolio-card__body">
-              <span class="portfolio-card__tag">Catálogo Digital</span>
-              <h3>Catálogo Digital para Ferretería</h3>
-              <p>Más de 200 productos organizados por categoría con búsqueda rápida.</p>
-              <a href="demos/ferreteria.html" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Ver Demo</a>
-            </div>
-          </article>
-
-          <article class="portfolio-card reveal">
-            <div class="portfolio-card__img portfolio-card__img--2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
-              <span>Captura del proyecto</span>
-            </div>
-            <div class="portfolio-card__body">
-              <span class="portfolio-card__tag">App Móvil</span>
-              <h3>App Móvil de Ventas</h3>
-              <p>Registro de pedidos offline con sincronización automática al recuperar señal.</p>
-              <a href="demos/app-ventas.html" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Ver Demo</a>
-            </div>
-          </article>
-
-          <article class="portfolio-card reveal">
-            <div class="portfolio-card__img portfolio-card__img--3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20"/></svg>
-              <span>Captura del proyecto</span>
-            </div>
-            <div class="portfolio-card__body">
-              <span class="portfolio-card__tag">Landing Page</span>
-              <h3>Landing Page para Taquería</h3>
-              <p>Menú digital, ubicación y botón de pedidos por WhatsApp en un solo clic.</p>
-              <a href="demos/taqueria.html" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Ver Demo</a>
+            <div class="p-6">
+              <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent-dark">Catálogo Digital</span>
+              <h3 class="mt-3 font-bold text-ink">Catálogo Digital para Ferretería</h3>
+              <p class="mb-5 mt-1 text-sm text-slate-500">Más de 200 productos organizados por categoría con búsqueda rápida.</p>
+              <a href="demos/ferreteria.html" target="_blank" rel="noopener" class="btn-outline inline-flex items-center gap-1.5 px-5 py-2 text-xs">
+                Ver Demo
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="portfolio-card reveal">
-            <div class="portfolio-card__img portfolio-card__img--4">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span>Captura del proyecto</span>
+          <!-- Mockup tipo teléfono -->
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex justify-center bg-slate-100 p-5">
+              <div class="w-32 rounded-[1.6rem] border-[6px] border-ink bg-ink shadow-xl">
+                <div class="relative overflow-hidden rounded-[1.15rem] bg-gradient-to-b from-ink-2 to-primary-dark">
+                  <div class="absolute left-1/2 top-0 h-4 w-14 -translate-x-1/2 rounded-b-lg bg-ink"></div>
+                  <div class="flex aspect-[9/17] flex-col items-center justify-center gap-2 text-white/90">
+                    <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+                    <span class="text-[10px] font-semibold">Vista previa</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="portfolio-card__body">
-              <span class="portfolio-card__tag">Sitio Web + SEO</span>
-              <h3>Sitio Web para Estética</h3>
-              <p>Multipágina con agenda de citas y posicionamiento en Google Maps.</p>
-              <a href="demos/estetica.html" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Ver Demo</a>
+            <div class="p-6">
+              <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent-dark">App Móvil</span>
+              <h3 class="mt-3 font-bold text-ink">App Móvil de Ventas</h3>
+              <p class="mb-5 mt-1 text-sm text-slate-500">Registro de pedidos offline con sincronización automática al recuperar señal.</p>
+              <a href="demos/app-ventas.html" target="_blank" rel="noopener" class="btn-outline inline-flex items-center gap-1.5 px-5 py-2 text-xs">
+                Ver Demo
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-slate-100 p-4">
+              <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-inner">
+                <div class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-3 py-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-red-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-300"></span>
+                </div>
+                <div class="flex aspect-video flex-col items-center justify-center gap-2 bg-gradient-to-br from-violet to-accent text-white/90">
+                  <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+                  <span class="text-xs font-semibold">Vista previa</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent-dark">Landing Page</span>
+              <h3 class="mt-3 font-bold text-ink">Landing Page para Taquería</h3>
+              <p class="mb-5 mt-1 text-sm text-slate-500">Menú digital, ubicación y botón de pedidos por WhatsApp en un solo clic.</p>
+              <a href="demos/taqueria.html" target="_blank" rel="noopener" class="btn-outline inline-flex items-center gap-1.5 px-5 py-2 text-xs">
+                Ver Demo
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-slate-100 p-4">
+              <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-inner">
+                <div class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-3 py-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-red-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-300"></span>
+                </div>
+                <div class="flex aspect-video flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary to-accent text-white/90">
+                  <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                  <span class="text-xs font-semibold">Vista previa</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent-dark">Sitio Web + SEO</span>
+              <h3 class="mt-3 font-bold text-ink">Sitio Web para Estética</h3>
+              <p class="mb-5 mt-1 text-sm text-slate-500">Multipágina con agenda de citas y posicionamiento en Google Maps.</p>
+              <a href="demos/estetica.html" target="_blank" rel="noopener" class="btn-outline inline-flex items-center gap-1.5 px-5 py-2 text-xs">
+                Ver Demo
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
             </div>
           </article>
         </div>
@@ -202,136 +295,167 @@
     </section>
 
     <!-- ============ PAQUETES ============ -->
-    <section class="section pricing" id="paquetes">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__tag">Paquetes</span>
-          <h2 class="section__title">Elige el plan perfecto para tu negocio</h2>
-          <p class="section__desc">Pago único. Sin mensualidades ocultas, sin comisiones por venta.</p>
+    <section class="bg-slate-50 py-20 lg:py-28" id="paquetes">
+      <div class="container mx-auto max-w-7xl px-5 lg:px-8">
+        <header class="mx-auto mb-14 max-w-2xl text-center" data-aos="fade-up">
+          <span class="section-tag">Paquetes</span>
+          <h2 class="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">Elige el plan perfecto para tu negocio</h2>
+          <p class="mt-3 text-slate-500">Pago único. Sin mensualidades ocultas, sin comisiones por venta.</p>
         </header>
 
-        <div class="pricing__grid">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-6">
           <!-- Paquete 1 -->
-          <article class="price-card reveal">
-            <h3 class="price-card__name">Presencia Express</h3>
-            <p class="price-card__desc">Ideal para validación rápida. El gancho perfecto para negocios que quieren algo económico hoy mismo.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">$1,499</span>
-              <span class="price-card__currency">MXN</span>
+          <article class="flex flex-col rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg" data-aos="fade-up">
+            <h3 class="text-xl font-extrabold text-ink">Presencia Express</h3>
+            <p class="mb-6 mt-2 min-h-[3.2em] text-sm text-slate-500">Ideal para validación rápida. El gancho perfecto para negocios que quieren algo económico hoy mismo.</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black tracking-tight text-ink">$1,499</span>
+              <span class="font-bold text-slate-400">MXN</span>
             </div>
-            <p class="price-card__note">Pago único + costo de dominio</p>
-            <ul class="price-card__features">
-              <li>Landing Page optimizada</li>
-              <li>Botón flotante de contacto</li>
-              <li>Alojamiento gratis (GitHub Pages)</li>
-              <li>Conexión de dominio propio</li>
+            <p class="mb-6 mt-1 text-xs text-slate-400">Pago único + costo de dominio</p>
+            <ul class="mb-8 flex-grow space-y-3">
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Landing Page optimizada
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Botón flotante de contacto
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Alojamiento gratis (GitHub Pages)
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Conexión de dominio propio
+              </li>
             </ul>
-            <a href="#contacto" class="btn btn--outline btn--block">Cotizar este paquete</a>
+            <a href="#contacto" class="btn-outline w-full">Cotizar este paquete</a>
           </article>
 
           <!-- Paquete 2 (destacado) -->
-          <article class="price-card price-card--featured reveal">
-            <span class="price-card__badge">⭐ Más Vendido</span>
-            <h3 class="price-card__name">Negocio Profesional</h3>
-            <p class="price-card__desc">Para negocios con catálogo que buscan posicionarse localmente.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">$3,499</span>
-              <span class="price-card__currency">MXN</span>
+          <article class="relative flex flex-col rounded-3xl border-2 border-primary bg-gradient-to-b from-primary/5 to-white p-8 shadow-primary-glow transition-transform duration-300 lg:scale-110 lg:p-9" data-aos="zoom-in">
+            <span class="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-primary to-violet px-5 py-2 text-xs font-bold text-white shadow-primary-glow">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg>
+              Más Vendido
+            </span>
+            <h3 class="mt-2 text-xl font-extrabold text-ink">Negocio Profesional</h3>
+            <p class="mb-6 mt-2 min-h-[3.2em] text-sm text-slate-500">Para negocios con catálogo que buscan posicionarse localmente.</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black tracking-tight text-ink">$3,499</span>
+              <span class="font-bold text-slate-400">MXN</span>
             </div>
-            <p class="price-card__note">Pago único + costo de dominio</p>
-            <ul class="price-card__features">
-              <li><strong>Todo lo del Paquete 1</strong></li>
-              <li>Sitio Web Multipágina</li>
-              <li>Catálogo Digital visual</li>
-              <li>Optimización Google Maps</li>
-              <li>SEO Básico</li>
-              <li>Opción autogestionable en WordPress <small>(hosting pagado por el cliente)</small></li>
+            <p class="mb-6 mt-1 text-xs text-slate-400">Pago único + costo de dominio</p>
+            <ul class="mb-8 flex-grow space-y-3">
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                <strong class="font-bold text-ink">Todo lo del Paquete 1</strong>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Sitio Web Multipágina
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Catálogo Digital visual
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Optimización Google Maps
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                SEO Básico
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                <span>Opción autogestionable en WordPress <small class="text-slate-400">(hosting pagado por el cliente)</small></span>
+              </li>
             </ul>
-            <a href="#contacto" class="btn btn--accent btn--block">Cotizar este paquete</a>
+            <a href="#contacto" class="btn-accent w-full">Cotizar este paquete</a>
           </article>
 
           <!-- Paquete 3 -->
-          <article class="price-card reveal">
-            <h3 class="price-card__name">Ecosistema Total</h3>
-            <p class="price-card__desc">Para empresas que quieren una herramienta directa de ventas.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">$7,999</span>
-              <span class="price-card__currency">MXN</span>
+          <article class="flex flex-col rounded-3xl border border-gray-100 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-extrabold text-ink">Ecosistema Total</h3>
+            <p class="mb-6 mt-2 min-h-[3.2em] text-sm text-slate-500">Para empresas que quieren una herramienta directa de ventas.</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black tracking-tight text-ink">$7,999</span>
+              <span class="font-bold text-slate-400">MXN</span>
             </div>
-            <p class="price-card__note">Pago único + costo de dominio</p>
-            <ul class="price-card__features">
-              <li><strong>Todo lo de los Paquetes 1 y 2</strong></li>
-              <li>App Móvil Personalizada</li>
-              <li>Arquitectura Offline-First <small>(para zonas con mala señal)</small></li>
-              <li>Código fuente (.ZIP)</li>
-              <li>Archivo instalable (.APK) sin pasar por tiendas</li>
+            <p class="mb-6 mt-1 text-xs text-slate-400">Pago único + costo de dominio</p>
+            <ul class="mb-8 flex-grow space-y-3">
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                <strong class="font-bold text-ink">Todo lo de los Paquetes 1 y 2</strong>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                App Móvil Personalizada
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                <span>Arquitectura Offline-First <small class="text-slate-400">(para zonas con mala señal)</small></span>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Código fuente (.ZIP)
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+                Archivo instalable (.APK) sin pasar por tiendas
+              </li>
             </ul>
-            <a href="#contacto" class="btn btn--outline btn--block">Cotizar este paquete</a>
+            <a href="#contacto" class="btn-outline w-full">Cotizar este paquete</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACTO / CTA FINAL ============ -->
-    <section class="section contact" id="contacto">
-      <div class="container">
-        <div class="contact__box reveal">
-          <h2>¿Listo para digitalizar tu negocio?</h2>
-          <p>Escríbenos hoy y recibe una cotización sin compromiso. Respondemos en menos de 24 horas.</p>
-          <a href="https://wa.me/525610853003?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Cotizar por WhatsApp</a>
+    <section class="py-20 lg:py-28" id="contacto">
+      <div class="container mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink via-ink-2 to-primary-dark px-6 py-16 text-center text-white sm:py-20" data-aos="fade-up">
+          <div class="pointer-events-none absolute inset-0 bg-noise opacity-[0.15] mix-blend-overlay"></div>
+          <div class="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-accent/20 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-16 -left-16 h-72 w-72 rounded-full bg-violet/25 blur-3xl"></div>
+
+          <div class="relative">
+            <h2 class="text-3xl font-extrabold sm:text-4xl">¿Listo para digitalizar tu negocio?</h2>
+            <p class="mx-auto mb-8 mt-4 max-w-xl text-slate-300">Escríbenos hoy y recibe una cotización sin compromiso. Respondemos en menos de 24 horas.</p>
+            <a href="https://wa.me/525610853003?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-accent animate-pulse-slow px-8 py-4 text-base">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
+              Cotizar por WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container footer__grid">
+  <footer class="bg-ink pb-8 pt-16 text-slate-400">
+    <div class="container mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-white/10 px-5 pb-10 md:grid-cols-2 lg:px-8">
       <div>
-        <p class="footer__brand">ClicDirecto <strong>Soluciones HV</strong></p>
-        <p class="footer__tagline">Agencia de desarrollo de software y digitalización para negocios.</p>
+        <p class="text-lg text-white">ClicDirecto <strong class="font-extrabold text-indigo-300">Soluciones HV</strong></p>
+        <p class="mt-1.5 text-sm">Agencia de desarrollo de software y digitalización para negocios.</p>
       </div>
-      <nav class="footer__links" aria-label="Enlaces legales">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#paquetes">Paquetes</a>
-        <a href="#" onclick="return false;">Aviso de Privacidad</a>
-        <a href="#" onclick="return false;">Términos y Condiciones</a>
+      <nav class="flex flex-wrap gap-x-8 gap-y-2 text-sm md:justify-end" aria-label="Enlaces legales">
+        <a href="#inicio" class="transition-colors hover:text-white">Inicio</a>
+        <a href="#servicios" class="transition-colors hover:text-white">Servicios</a>
+        <a href="#paquetes" class="transition-colors hover:text-white">Paquetes</a>
+        <a href="#" onclick="return false;" class="transition-colors hover:text-white">Aviso de Privacidad</a>
+        <a href="#" onclick="return false;" class="transition-colors hover:text-white">Términos y Condiciones</a>
       </nav>
     </div>
-    <div class="container footer__bottom">
+    <div class="container mx-auto flex max-w-7xl flex-col items-center gap-2 px-5 pt-8 text-center text-xs md:flex-row md:justify-between md:text-left lg:px-8">
       <p>© <span id="year">2026</span> ClicDirecto Soluciones HV. Todos los derechos reservados.</p>
       <p>Diseñado y alojado con tecnología estática de alto rendimiento. ⚡</p>
     </div>
   </footer>
 
-  <!-- ============ BOTÓN FLOTANTE MULTICANAL ============ -->
-  <div class="fab" id="fab">
-    <div class="fab__menu" id="fabMenu" aria-hidden="true">
-      <a href="https://wa.me/525610853003?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20paquetes" target="_blank" rel="noopener" class="fab__item fab__item--wa" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
-        <span>WhatsApp</span>
-      </a>
-      <a href="https://www.instagram.com/clicdirectosolucioneshv?utm_source=qr&amp;igsh=MWVxMmVxMmJ6NXF6cw==" target="_blank" rel="noopener" class="fab__item fab__item--ig" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.facebook.com/share/1DHpfVHeWV/" target="_blank" rel="noopener" class="fab__item fab__item--fb" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        <span>Facebook</span>
-      </a>
-      <a href="https://www.tiktok.com/@clicdirecto.soluc" target="_blank" rel="noopener" class="fab__item fab__item--tt" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-        <span>TikTok</span>
-      </a>
-    </div>
-    <button class="fab__btn" id="fabBtn" aria-expanded="false" aria-controls="fabMenu">
-      <svg class="fab__icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-      <svg class="fab__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      <span class="fab__label">Cotizar aquí</span>
-    </button>
-  </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
