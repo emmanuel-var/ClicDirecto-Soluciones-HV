@@ -9,87 +9,127 @@
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --rojo:#dc2626; --rojo-osc:#991b1b; --amarillo:#fbbf24; --crema:#fffbeb;
-      --oscuro:#1c1917; --texto:#57534e; --borde:#fde68a;
+      --dorado:#c9a15a; --dorado-claro:#e3c07f; --negro:#0e0d0c; --negro-2:#171512;
+      --tarjeta:#1c1a16; --borde:#332e24; --texto:#c9c3b8; --texto-tenue:#8f887a;
+      --wa:#25d366;
+      --radius:18px;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--texto);line-height:1.6}
+    body{font-family:'Poppins',system-ui,sans-serif;background:var(--negro);color:var(--texto);line-height:1.65}
     a{text-decoration:none;color:inherit}
-    .container{width:min(100% - 2rem,1000px);margin-inline:auto}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    .container{width:min(100% - 2.5rem,1080px);margin-inline:auto}
 
-    .demo-bar{background:#4f46e5;color:#fff;font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
-    .demo-bar a{text-decoration:underline;font-weight:800}
+    .demo-bar{background:var(--negro-2);border-bottom:1px solid var(--borde);color:#fff;font-size:.78rem;font-weight:600;text-align:center;padding:.5rem 1rem}
+    .demo-bar a{color:var(--dorado-claro);text-decoration:underline;font-weight:800}
 
-    header.top{position:sticky;top:0;z-index:50;background:rgba(255,251,235,.95);backdrop-filter:blur(8px);border-bottom:2px solid var(--borde);padding:.8rem 0}
+    header.top{position:sticky;top:0;z-index:50;background:rgba(14,13,12,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde);padding:.9rem 0}
     .top__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.55rem;font-weight:900;color:var(--oscuro);font-size:1.02rem}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;color:#fff;font-size:1.05rem;font-family:'Playfair Display',serif}
     .brand span{font-size:1.5rem}
-    .top__nav{display:none;gap:1.4rem;font-weight:700;font-size:.9rem}
-    .top__nav a:hover{color:var(--rojo)}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;border-radius:999px;transition:.25s}
-    .btn--wa{background:#25d366;color:#fff;padding:.6rem 1.2rem;font-size:.85rem;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+    .top__nav{display:none;gap:1.6rem;font-weight:600;font-size:.88rem}
+    .top__nav a{transition:.2s}
+    .top__nav a:hover{color:var(--dorado)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;border-radius:999px;transition:.25s;padding:.7rem 1.5rem;font-size:.88rem}
+    .btn--wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.3)}
     .btn--wa:hover{transform:translateY(-2px)}
     .btn--wa svg{width:16px;height:16px}
+    .btn--gold{background:linear-gradient(120deg,var(--dorado-claro),var(--dorado));color:#1c1608;font-weight:800}
+    .btn--gold:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(201,161,90,.35)}
+    .btn--outline{border:1.5px solid rgba(255,255,255,.3);color:#fff;background:transparent}
+    .btn--outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+    .btn--lg{padding:1rem 2.1rem;font-size:.95rem}
 
-    .hero{position:relative;background:linear-gradient(120deg,var(--rojo-osc),var(--rojo) 60%,#ea580c);color:#fff;text-align:center;padding:4.5rem 0 5rem;overflow:hidden}
-    .hero::after{content:'🌮 🌶️ 🧅 🫓 🥑 🍋 🌮 🌶️ 🧅 🫓 🥑 🍋';position:absolute;inset:auto 0 -14px;font-size:2rem;opacity:.25;white-space:nowrap;letter-spacing:1.4em;animation:marquee 30s linear infinite}
-    @keyframes marquee{to{transform:translateX(-50%)}}
-    .hero__badge{display:inline-block;background:var(--amarillo);color:var(--oscuro);font-weight:900;font-size:.78rem;padding:.4rem 1.1rem;border-radius:999px;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.06em}
-    .hero h1{font-size:clamp(2.1rem,7vw,3.6rem);font-weight:900;line-height:1.1;margin-bottom:.9rem;text-shadow:0 4px 20px rgba(0,0,0,.25)}
-    .hero p{color:#fef3c7;max-width:520px;margin:0 auto 2rem;font-size:1.05rem}
-    .hero .btn--big{background:var(--amarillo);color:var(--oscuro);padding:1rem 2.2rem;font-size:1.05rem;box-shadow:0 12px 30px rgba(0,0,0,.3)}
-    .hero .btn--big:hover{transform:translateY(-3px) scale(1.02)}
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:3.5rem 0 3rem;background:
+      radial-gradient(ellipse 70% 50% at 15% 10%, rgba(201,161,90,.10), transparent 55%),
+      var(--negro)}
+    .hero__grid{display:grid;grid-template-columns:1fr;gap:2.2rem;align-items:center}
+    .hero__badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(201,161,90,.4);color:var(--dorado-claro);font-weight:700;font-size:.78rem;padding:.4rem 1.1rem;border-radius:999px;margin-bottom:1.3rem;text-transform:uppercase;letter-spacing:.05em}
+    .hero h1{font-size:clamp(2rem,7vw,3.1rem);font-weight:800;line-height:1.15;color:#fff;margin-bottom:1rem}
+    .hero h1 em{font-style:normal;color:var(--dorado)}
+    .hero p{color:var(--texto);max-width:480px;margin-bottom:1.6rem;font-size:1rem}
+    .hero__hours{display:flex;align-items:center;gap:.5rem;color:var(--texto-tenue);font-size:.88rem;font-weight:600;margin-bottom:1.8rem}
+    .hero__hours svg{width:16px;height:16px;color:var(--dorado)}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:.8rem}
+    .hero__photo{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--borde);background:linear-gradient(135deg,#241f16,#161310);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem}
+    .hero__photo .emoji{font-size:4.5rem}
+    .hero__photo span{color:var(--texto-tenue);font-size:.8rem;font-weight:600;text-align:center;padding:0 1.5rem}
+
+    /* Features */
+    .features{padding:3rem 0;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+    .features__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;text-align:center}
+    .feature__icon{width:48px;height:48px;margin:0 auto .8rem;border-radius:50%;background:rgba(201,161,90,.12);color:var(--dorado);display:grid;place-items:center}
+    .feature__icon svg{width:22px;height:22px}
+    .feature h3{font-size:.95rem;color:#fff;margin-bottom:.35rem;font-family:'Poppins',sans-serif;font-weight:700}
+    .feature p{font-size:.8rem;color:var(--texto-tenue)}
 
     .section{padding:4rem 0}
-    .sec-title{text-align:center;font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:900;color:var(--oscuro);margin-bottom:.5rem}
-    .sec-sub{text-align:center;margin-bottom:2.4rem;color:var(--texto)}
+    .sec-eyebrow{display:block;text-align:center;color:var(--dorado);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+    .sec-title{text-align:center;font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:800;color:#fff;margin-bottom:.5rem}
+    .sec-sub{text-align:center;margin-bottom:2.4rem;color:var(--texto-tenue);font-size:.92rem}
 
+    /* Menú */
+    .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2.2rem}
+    .tab{flex-shrink:0;padding:.5rem 1.2rem;border-radius:999px;background:var(--tarjeta);border:1px solid var(--borde);font-size:.82rem;font-weight:700;color:var(--texto);cursor:pointer;transition:.2s;font-family:inherit}
+    .tab.active,.tab:hover{background:var(--dorado);border-color:var(--dorado);color:#1c1608}
     .menu-grid{display:grid;grid-template-columns:1fr;gap:1rem}
-    .platillo{display:flex;align-items:center;gap:1rem;background:#fff;border:2px solid var(--borde);border-radius:18px;padding:1rem 1.2rem;transition:.25s}
-    .platillo:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(220,38,38,.12);border-color:var(--amarillo)}
-    .platillo__emoji{font-size:2.4rem;flex-shrink:0}
-    .platillo__info{flex-grow:1}
-    .platillo__nombre{font-weight:800;color:var(--oscuro);display:flex;justify-content:space-between;gap:.8rem;font-size:1rem}
-    .platillo__nombre b{color:var(--rojo);white-space:nowrap}
-    .platillo__desc{font-size:.85rem}
-    .pop{display:inline-block;background:#fee2e2;color:var(--rojo);font-size:.62rem;font-weight:900;padding:.15rem .55rem;border-radius:999px;text-transform:uppercase;margin-left:.4rem;vertical-align:middle}
+    .platillo{display:flex;align-items:center;gap:1.1rem;background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radius);padding:1.1rem 1.3rem;transition:.25s}
+    .platillo:hover{transform:translateY(-3px);border-color:var(--dorado)}
+    .platillo__emoji{width:56px;height:56px;flex-shrink:0;border-radius:14px;background:rgba(201,161,90,.1);display:grid;place-items:center;font-size:1.9rem}
+    .platillo__info{flex-grow:1;min-width:0}
+    .platillo__nombre{font-weight:700;color:#fff;display:flex;justify-content:space-between;gap:.8rem;font-size:1rem;font-family:'Poppins',sans-serif}
+    .platillo__nombre b{color:var(--dorado);white-space:nowrap;font-weight:800}
+    .platillo__desc{font-size:.85rem;color:var(--texto-tenue);margin-top:.2rem}
+    .pop{display:inline-block;background:rgba(201,161,90,.15);color:var(--dorado-claro);font-size:.6rem;font-weight:800;padding:.15rem .55rem;border-radius:999px;text-transform:uppercase;margin-left:.4rem;vertical-align:middle}
 
-    .datos{background:var(--oscuro);color:#e7e5e4}
-    .datos__grid{display:grid;grid-template-columns:1fr;gap:1.6rem;text-align:center}
-    .dato h3{color:var(--amarillo);font-weight:900;font-size:1rem;margin-bottom:.4rem;display:flex;align-items:center;justify-content:center;gap:.45rem}
-    .dato p{font-size:.9rem;color:#d6d3d1}
-    .dato a{color:#fbbf24;font-weight:700;text-decoration:underline}
-
-    .resenas{background:#fff}
+    /* Reseñas */
+    .resenas{background:var(--negro-2);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
     .resenas__grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
-    .resena{background:var(--crema);border:2px solid var(--borde);border-radius:18px;padding:1.4rem}
-    .resena__stars{color:#f59e0b;letter-spacing:.15em;margin-bottom:.5rem}
-    .resena p{font-size:.92rem;font-style:italic;margin-bottom:.8rem}
-    .resena footer{font-weight:800;color:var(--oscuro);font-size:.85rem}
+    .resena{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:.8rem}
+    .resena__stars{color:var(--dorado);letter-spacing:.15em;font-size:.9rem}
+    .resena p{font-size:.9rem;font-style:italic;color:var(--texto)}
+    .resena footer{display:flex;align-items:center;gap:.6rem;margin-top:auto}
+    .resena__avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:#1c1608;font-weight:800;font-size:.8rem;display:grid;place-items:center;flex-shrink:0}
+    .resena__nombre{font-weight:700;color:#fff;font-size:.85rem}
 
-    .cta-final{text-align:center;background:linear-gradient(120deg,var(--rojo),#ea580c);color:#fff;border-radius:24px;padding:3rem 1.5rem;margin:0 auto}
-    .cta-final h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;margin-bottom:.6rem}
-    .cta-final p{color:#fef3c7;margin-bottom:1.6rem}
+    /* Ubicación */
+    .datos__grid{display:grid;grid-template-columns:1fr;gap:1.4rem}
+    .dato{display:flex;gap:.9rem;align-items:flex-start}
+    .dato__icon{width:40px;height:40px;flex-shrink:0;border-radius:12px;background:rgba(201,161,90,.12);color:var(--dorado);display:grid;place-items:center}
+    .dato__icon svg{width:19px;height:19px}
+    .dato h3{font-size:.95rem;color:#fff;margin-bottom:.25rem;font-family:'Poppins',sans-serif;font-weight:700}
+    .dato p{font-size:.85rem;color:var(--texto-tenue)}
+    .dato a{color:var(--dorado-claro);font-weight:700}
 
-    footer.pie{text-align:center;padding:2rem 1rem;font-size:.85rem}
-    footer.pie strong{color:var(--oscuro)}
-    footer.pie .credit{margin-top:.5rem;font-size:.75rem}
-    footer.pie .credit a{color:#4f46e5;font-weight:700}
+    .cta-final{text-align:center;background:linear-gradient(120deg,#241f16,#171310);border:1px solid var(--borde);border-radius:24px;padding:3rem 1.5rem;position:relative;overflow:hidden}
+    .cta-final h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;color:#fff;margin-bottom:.6rem}
+    .cta-final p{color:var(--texto-tenue);margin-bottom:1.8rem}
 
-    .fab-wa{position:fixed;right:1.1rem;bottom:1.1rem;z-index:100;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.5);transition:.25s;animation:pulso 2.4s infinite}
+    footer.pie{text-align:center;padding:2.2rem 1rem;font-size:.85rem;border-top:1px solid var(--borde)}
+    footer.pie strong{color:#fff}
+    footer.pie .credit{margin-top:.5rem;font-size:.75rem;color:var(--texto-tenue)}
+    footer.pie .credit a{color:var(--dorado-claro);font-weight:700}
+
+    .fab-wa{position:fixed;right:1.1rem;bottom:1.1rem;z-index:100;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.5);transition:.25s;animation:pulso 2.4s infinite}
     .fab-wa:hover{transform:scale(1.1)}
-    .fab-wa svg{width:30px;height:30px;color:#fff}
+    .fab-wa svg{width:28px;height:28px;color:#fff}
     @keyframes pulso{50%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 14px rgba(37,211,102,.12)}}
 
     @media(min-width:640px){
+      .top__nav{display:flex}
+      .features__grid{grid-template-columns:repeat(4,1fr)}
       .menu-grid{grid-template-columns:repeat(2,1fr)}
       .resenas__grid{grid-template-columns:repeat(3,1fr)}
       .datos__grid{grid-template-columns:repeat(3,1fr)}
-      .top__nav{display:flex}
+    }
+    @media(min-width:900px){
+      .hero__grid{grid-template-columns:1.1fr 1fr}
+      .hero{padding:5rem 0}
     }
   </style>
 </head>
@@ -112,49 +152,119 @@
   </header>
 
   <section class="hero">
-    <div class="container">
-      <span class="hero__badge">🔥 Desde 1998 · Receta familiar</span>
-      <h1>Los tacos que hacen<br>que vuelvas mañana</h1>
-      <p>Tortilla hecha a mano, carne al momento y salsas que no encuentras en ningún otro lado. Pide por WhatsApp y pasa a recoger sin filas.</p>
-      <a class="btn btn--big" href="#menu">Ver el Menú 👇</a>
+    <div class="container hero__grid">
+      <div>
+        <span class="hero__badge">🔥 Desde 1998 · Receta familiar</span>
+        <h1>Los tacos que hacen<br>que <em>vuelvas mañana</em></h1>
+        <p>Tortilla hecha a mano, carne al momento y salsas que no encuentras en ningún otro lado. Pide por WhatsApp y pasa a recoger sin filas.</p>
+        <div class="hero__hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Martes a Domingo · 6:00 pm – 1:00 am
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--gold btn--lg" href="#menu">Ver el Menú</a>
+          <a class="btn btn--outline btn--lg" href="https://wa.me/525610853003?text=Hola%2C%20quiero%20hacer%20un%20pedido%20(demo)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <span class="emoji">🌮🔥</span>
+        <span>Aquí iría una foto real de tu taquería y tus platillos</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container features__grid">
+      <div class="feature">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5v3H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5Z"/></svg></div>
+        <h3>Tortillas a mano</h3>
+        <p>Hechas al momento, todos los días</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div>
+        <h3>Carne al momento</h3>
+        <p>Directo del trompo a tu taco</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Pide por WhatsApp</h3>
+        <p>Sin apps ni comisiones extra</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+        <h3>Recoge sin filas</h3>
+        <p>Tu pedido listo cuando llegues</p>
+      </div>
     </div>
   </section>
 
   <section class="section" id="menu">
     <div class="container">
-      <h2 class="sec-title">Nuestro Menú</h2>
+      <span class="sec-eyebrow">Nuestro menú</span>
+      <h2 class="sec-title">Lo que se antoja hoy</h2>
       <p class="sec-sub">Precios por orden de 3 tacos · Todos incluyen cebolla, cilantro y salsa de la casa</p>
-      <div class="menu-grid">
-        <article class="platillo"><span class="platillo__emoji">🌮</span><div class="platillo__info"><h3 class="platillo__nombre">Pastor con Piña<span class="pop">El favorito</span> <b>$45</b></h3><p class="platillo__desc">Marinado 24 hrs, directo del trompo con su piña dorada.</p></div></article>
-        <article class="platillo"><span class="platillo__emoji">🥩</span><div class="platillo__info"><h3 class="platillo__nombre">Bistec <b>$50</b></h3><p class="platillo__desc">Corte fino sellado a la plancha con cebollita asada.</p></div></article>
-        <article class="platillo"><span class="platillo__emoji">🧀</span><div class="platillo__info"><h3 class="platillo__nombre">Campechano con Queso <b>$55</b></h3><p class="platillo__desc">Bistec + chorizo + queso fundido. La combinación perfecta.</p></div></article>
-        <article class="platillo"><span class="platillo__emoji">🍖</span><div class="platillo__info"><h3 class="platillo__nombre">Costilla <b>$55</b></h3><p class="platillo__desc">Jugosa, doradita y con hueso pa' chuparlo.</p></div></article>
-        <article class="platillo"><span class="platillo__emoji">🫓</span><div class="platillo__info"><h3 class="platillo__nombre">Quesadilla Grande <b>$40</b></h3><p class="platillo__desc">Tortilla azul hecha a mano con quesillo de Oaxaca.</p></div></article>
-        <article class="platillo"><span class="platillo__emoji">🥤</span><div class="platillo__info"><h3 class="platillo__nombre">Agua del Día 1 L <b>$25</b></h3><p class="platillo__desc">Horchata, jamaica o limón con chía, bien fría.</p></div></article>
-      </div>
-    </div>
-  </section>
 
-  <section class="section datos" id="ubicacion">
-    <div class="container">
-      <h2 class="sec-title" style="color:#fff">Visítanos o pide para llevar</h2>
-      <p class="sec-sub" style="color:#d6d3d1">Estamos más cerca de lo que crees</p>
-      <div class="datos__grid">
-        <div class="dato"><h3>📍 Dirección</h3><p>Av. de los Sabores #45, Col. Centro<br><a href="https://maps.google.com/?q=taqueria" target="_blank" rel="noopener">Ver en Google Maps</a></p></div>
-        <div class="dato"><h3>🕐 Horario</h3><p>Martes a Domingo<br>6:00 pm – 1:00 am</p></div>
-        <div class="dato"><h3>📱 Pedidos</h3><p>WhatsApp: 56 1085 3003<br>Recoge en tienda sin hacer fila</p></div>
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-cat="todos">Todos</button>
+        <button class="tab" data-cat="tacos">Tacos</button>
+        <button class="tab" data-cat="otros">Otros</button>
+        <button class="tab" data-cat="bebidas">Bebidas</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <article class="platillo" data-cat="tacos"><span class="platillo__emoji">🌮</span><div class="platillo__info"><h3 class="platillo__nombre">Pastor con Piña<span class="pop">El favorito</span> <b>$45</b></h3><p class="platillo__desc">Marinado 24 hrs, directo del trompo con su piña dorada.</p></div></article>
+        <article class="platillo" data-cat="tacos"><span class="platillo__emoji">🥩</span><div class="platillo__info"><h3 class="platillo__nombre">Bistec <b>$50</b></h3><p class="platillo__desc">Corte fino sellado a la plancha con cebollita asada.</p></div></article>
+        <article class="platillo" data-cat="tacos"><span class="platillo__emoji">🧀</span><div class="platillo__info"><h3 class="platillo__nombre">Campechano con Queso <b>$55</b></h3><p class="platillo__desc">Bistec + chorizo + queso fundido. La combinación perfecta.</p></div></article>
+        <article class="platillo" data-cat="tacos"><span class="platillo__emoji">🍖</span><div class="platillo__info"><h3 class="platillo__nombre">Costilla <b>$55</b></h3><p class="platillo__desc">Jugosa, doradita y con hueso pa' chuparlo.</p></div></article>
+        <article class="platillo" data-cat="otros"><span class="platillo__emoji">🫓</span><div class="platillo__info"><h3 class="platillo__nombre">Quesadilla Grande <b>$40</b></h3><p class="platillo__desc">Tortilla azul hecha a mano con quesillo de Oaxaca.</p></div></article>
+        <article class="platillo" data-cat="bebidas"><span class="platillo__emoji">🥤</span><div class="platillo__info"><h3 class="platillo__nombre">Agua del Día 1 L <b>$25</b></h3><p class="platillo__desc">Horchata, jamaica o limón con chía, bien fría.</p></div></article>
       </div>
     </div>
   </section>
 
   <section class="section resenas" id="resenas">
     <div class="container">
+      <span class="sec-eyebrow">Testimonios</span>
       <h2 class="sec-title">Lo que dice la banda</h2>
       <p class="sec-sub">⭐ 4.9 en Google · Más de 300 reseñas</p>
       <div class="resenas__grid">
-        <article class="resena"><div class="resena__stars">★★★★★</div><p>"El pastor está en otro nivel. La salsa de habanero tatemado es una obra de arte."</p><footer>— Carlos M.</footer></article>
-        <article class="resena"><div class="resena__stars">★★★★★</div><p>"Pedí por WhatsApp y en 15 minutos ya estaba recogiendo mi orden. Cero filas."</p><footer>— Fernanda R.</footer></article>
-        <article class="resena"><div class="resena__stars">★★★★★</div><p>"Las tortillas hechas a mano marcan toda la diferencia. Mi taquería de confianza."</p><footer>— Luis G.</footer></article>
+        <article class="resena">
+          <div class="resena__stars">★★★★★</div>
+          <p>"El pastor está en otro nivel. La salsa de habanero tatemado es una obra de arte."</p>
+          <footer><span class="resena__avatar">CM</span><span class="resena__nombre">Carlos M.</span></footer>
+        </article>
+        <article class="resena">
+          <div class="resena__stars">★★★★★</div>
+          <p>"Pedí por WhatsApp y en 15 minutos ya estaba recogiendo mi orden. Cero filas."</p>
+          <footer><span class="resena__avatar">FR</span><span class="resena__nombre">Fernanda R.</span></footer>
+        </article>
+        <article class="resena">
+          <div class="resena__stars">★★★★★</div>
+          <p>"Las tortillas hechas a mano marcan toda la diferencia. Mi taquería de confianza."</p>
+          <footer><span class="resena__avatar">LG</span><span class="resena__nombre">Luis G.</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ubicacion">
+    <div class="container">
+      <span class="sec-eyebrow">Visítanos</span>
+      <h2 class="sec-title">Encuéntranos o pide para llevar</h2>
+      <p class="sec-sub">Estamos más cerca de lo que crees</p>
+      <div class="datos__grid">
+        <div class="dato">
+          <div class="dato__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div>
+          <div><h3>Dirección</h3><p>Av. de los Sabores #45, Col. Centro<br><a href="https://maps.google.com/?q=taqueria" target="_blank" rel="noopener">Ver en Google Maps</a></p></div>
+        </div>
+        <div class="dato">
+          <div class="dato__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><h3>Horario</h3><p>Martes a Domingo<br>6:00 pm – 1:00 am</p></div>
+        </div>
+        <div class="dato">
+          <div class="dato__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div>
+          <div><h3>Pedidos</h3><p>WhatsApp: 56 1085 3003<br>Recoge en tienda sin hacer fila</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -164,7 +274,7 @@
       <div class="cta-final">
         <h2>¿Se te antojó? 🌮</h2>
         <p>Mándanos tu pedido ahorita y te decimos en cuánto está listo.</p>
-        <a class="btn btn--big" style="background:#fff;color:#dc2626;padding:1rem 2.2rem" href="https://wa.me/525610853003?text=Hola%2C%20quiero%20hacer%20un%20pedido%20(demo)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn btn--wa btn--lg" href="https://wa.me/525610853003?text=Hola%2C%20quiero%20hacer%20un%20pedido%20(demo)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -177,5 +287,20 @@
   <a class="fab-wa" href="https://wa.me/525610853003?text=Hola%2C%20quiero%20hacer%20un%20pedido%20(demo)" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
   </a>
+
+  <script>
+    const tabs = document.getElementById('tabs');
+    const items = document.querySelectorAll('#menuGrid .platillo');
+    tabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab');
+      if (!btn) return;
+      tabs.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      items.forEach(el => {
+        el.style.display = (cat === 'todos' || el.dataset.cat === cat) ? 'flex' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>

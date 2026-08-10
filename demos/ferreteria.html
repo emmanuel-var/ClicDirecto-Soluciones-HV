@@ -9,77 +9,114 @@
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --naranja:#ea580c; --naranja-osc:#c2410c; --gris:#1c1917; --gris-2:#44403c;
-      --crema:#fafaf9; --borde:#e7e5e4; --texto:#57534e;
-      --radius:14px; --sombra:0 4px 18px rgba(28,25,23,.08);
+      --teal:#0d9488; --teal-osc:#0f766e; --teal-claro:#ccfbf1;
+      --navy:#0f172a; --gris:#475569; --gris-claro:#f8fafc;
+      --borde:#e2e8f0; --wa:#25d366;
+      --radius:14px; --sombra:0 10px 25px rgba(15,23,42,.08);
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--texto);line-height:1.6}
+    body{font-family:'Poppins',system-ui,sans-serif;background:#fff;color:var(--gris);line-height:1.6}
     a{text-decoration:none;color:inherit}
-    .container{width:min(100% - 2rem,1080px);margin-inline:auto}
+    .container{width:min(100% - 2rem,1120px);margin-inline:auto}
 
-    /* Aviso demo */
     .demo-bar{background:#4f46e5;color:#fff;font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
     .demo-bar a{text-decoration:underline;font-weight:800}
 
-    header.top{background:var(--gris);color:#fff;padding:.9rem 0;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    .util-bar{background:var(--teal-claro);color:var(--teal-osc);font-size:.78rem;font-weight:600;text-align:center;padding:.4rem 1rem}
+
+    header.top{background:#fff;padding:1rem 0;position:sticky;top:0;z-index:50;box-shadow:0 1px 0 var(--borde)}
     .top__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.05rem}
-    .brand__icon{width:38px;height:38px;background:var(--naranja);border-radius:10px;display:grid;place-items:center;font-size:1.2rem}
-    .brand small{display:block;font-size:.68rem;font-weight:600;color:#d6d3d1;letter-spacing:.08em;text-transform:uppercase}
-    .top__wa{display:inline-flex;align-items:center;gap:.45rem;background:#25d366;color:#fff;font-weight:700;font-size:.85rem;padding:.55rem 1.1rem;border-radius:999px;transition:.25s}
-    .top__wa:hover{transform:scale(1.04)}
-    .top__wa svg{width:17px;height:17px}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;color:var(--navy)}
+    .brand__icon{width:40px;height:40px;background:var(--teal);border-radius:11px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+    .brand small{display:block;font-size:.66rem;font-weight:600;color:var(--gris);letter-spacing:.06em;text-transform:uppercase}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;border-radius:999px;transition:.2s}
+    .btn--wa{background:var(--wa);color:#fff;font-size:.85rem;padding:.6rem 1.2rem;box-shadow:0 6px 16px rgba(37,211,102,.3)}
+    .btn--wa:hover{transform:translateY(-2px)}
+    .btn--wa svg{width:16px;height:16px}
+    .btn--teal{background:var(--teal);color:#fff;padding:.85rem 1.8rem;font-size:.92rem}
+    .btn--teal:hover{background:var(--teal-osc)}
+    .btn--outline{border:1.5px solid var(--borde);color:var(--navy);padding:.85rem 1.8rem;font-size:.92rem;background:#fff}
+    .btn--outline:hover{border-color:var(--teal);color:var(--teal)}
 
-    .hero{background:linear-gradient(120deg,var(--gris) 30%,#292524 70%);color:#fff;padding:3.2rem 0;text-align:center}
-    .hero h1{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:900;line-height:1.15;margin-bottom:.7rem}
-    .hero h1 span{color:#fb923c}
-    .hero p{color:#d6d3d1;max-width:560px;margin:0 auto}
+    /* Hero */
+    .hero{background:var(--gris-claro);padding:3.2rem 0}
+    .hero__grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+    .hero__badge{display:inline-block;background:var(--teal-claro);color:var(--teal-osc);font-weight:700;font-size:.75rem;padding:.4rem 1rem;border-radius:999px;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em}
+    .hero h1{font-size:clamp(1.8rem,5.5vw,2.6rem);font-weight:800;line-height:1.18;margin-bottom:.8rem;color:var(--navy)}
+    .hero h1 span{color:var(--teal)}
+    .hero p{color:var(--gris);max-width:520px;margin-bottom:1.6rem}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.8rem}
+    .trust{display:flex;flex-wrap:wrap;gap:1.2rem 1.6rem}
+    .trust span{display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:var(--gris)}
+    .trust svg{width:16px;height:16px;color:var(--teal)}
+    .hero__panel{background:#fff;border:1px solid var(--borde);border-radius:20px;padding:1.5rem;box-shadow:var(--sombra)}
+    .hero__panel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+    .hero__mini{background:var(--gris-claro);border-radius:12px;padding:1rem;text-align:center}
+    .hero__mini .emoji{font-size:1.8rem;display:block;margin-bottom:.4rem}
+    .hero__mini strong{display:block;font-size:.82rem;color:var(--navy);font-weight:700}
+    .hero__mini span{font-size:.72rem;color:var(--gris)}
 
-    .toolbar{position:sticky;top:64px;z-index:40;background:var(--crema);padding:1.1rem 0;border-bottom:1px solid var(--borde)}
+    /* Toolbar */
+    .toolbar{position:sticky;top:65px;z-index:40;background:#fff;padding:1.1rem 0;border-bottom:1px solid var(--borde)}
     .toolbar__inner{display:flex;flex-direction:column;gap:.8rem}
-    .search{display:flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid var(--borde);border-radius:999px;padding:.6rem 1.1rem}
-    .search svg{width:18px;height:18px;color:#a8a29e;flex-shrink:0}
-    .search input{border:none;outline:none;font:inherit;width:100%;background:transparent}
+    .search{display:flex;align-items:center;gap:.6rem;background:var(--gris-claro);border:1.5px solid var(--borde);border-radius:999px;padding:.65rem 1.1rem}
+    .search svg{width:18px;height:18px;color:#94a3b8;flex-shrink:0}
+    .search input{border:none;outline:none;font:inherit;width:100%;background:transparent;color:var(--navy)}
     .cats{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none}
     .cats::-webkit-scrollbar{display:none}
-    .cat{flex-shrink:0;padding:.45rem 1.1rem;border-radius:999px;background:#fff;border:1.5px solid var(--borde);font-size:.83rem;font-weight:700;color:var(--gris-2);cursor:pointer;transition:.2s;font-family:inherit}
-    .cat.active,.cat:hover{background:var(--naranja);border-color:var(--naranja);color:#fff}
+    .cat{flex-shrink:0;padding:.5rem 1.1rem;border-radius:999px;background:#fff;border:1.5px solid var(--borde);font-size:.83rem;font-weight:700;color:var(--gris);cursor:pointer;transition:.2s;font-family:inherit}
+    .cat.active,.cat:hover{background:var(--teal);border-color:var(--teal);color:#fff}
 
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;padding:1.6rem 0 3rem}
-    .card{background:#fff;border:1px solid var(--borde);border-radius:var(--radius);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
-    .card:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-    .card__img{height:110px;display:grid;place-items:center;font-size:2.6rem;background:linear-gradient(135deg,#fff7ed,#ffedd5)}
+    .section-label{padding-top:1.8rem;text-align:center}
+    .section-label h2{font-size:1.4rem;font-weight:800;color:var(--navy)}
+    .section-label p{font-size:.85rem;color:var(--gris);margin-top:.3rem}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:1.6rem 0 3rem}
+    .card{position:relative;background:#fff;border:1px solid var(--borde);border-radius:var(--radius);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--sombra);border-color:var(--teal)}
+    .card__badge{position:absolute;top:.6rem;left:.6rem;z-index:2;font-size:.62rem;font-weight:800;padding:.25rem .6rem;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+    .card__badge--vendido{background:var(--teal-claro);color:var(--teal-osc)}
+    .card__badge--nuevo{background:#fef3c7;color:#92400e}
+    .card__img{height:110px;display:grid;place-items:center;font-size:2.6rem;background:var(--gris-claro)}
     .card__body{padding:.9rem;display:flex;flex-direction:column;flex-grow:1}
-    .card__cat{font-size:.63rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--naranja);margin-bottom:.25rem}
-    .card__name{font-size:.9rem;font-weight:700;color:var(--gris);line-height:1.3;margin-bottom:.4rem}
-    .card__price{font-size:1.05rem;font-weight:900;color:var(--gris);margin-top:auto}
-    .card__price small{font-size:.68rem;font-weight:600;color:#a8a29e}
-    .card__btn{margin-top:.6rem;display:flex;align-items:center;justify-content:center;gap:.4rem;background:#25d366;color:#fff;font-weight:700;font-size:.78rem;padding:.5rem;border-radius:9px;transition:.2s}
+    .card__cat{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--teal)}
+    .card__name{font-size:.88rem;font-weight:700;color:var(--navy);line-height:1.3;margin:.3rem 0 .5rem}
+    .card__price{font-size:1.05rem;font-weight:900;color:var(--navy);margin-top:auto}
+    .card__price small{font-size:.66rem;font-weight:600;color:#94a3b8}
+    .card__btn{margin-top:.6rem;display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--wa);color:#fff;font-weight:700;font-size:.78rem;padding:.55rem;border-radius:9px;transition:.2s}
     .card__btn:hover{background:#1eb956}
     .card__btn svg{width:14px;height:14px}
-    .empty{text-align:center;padding:3rem 1rem;color:#a8a29e;font-weight:600;display:none}
+    .empty{text-align:center;padding:3rem 1rem;color:#94a3b8;font-weight:600;display:none}
 
-    footer{background:var(--gris);color:#d6d3d1;text-align:center;padding:2rem 1rem;font-size:.85rem}
-    footer strong{color:#fff}
-    footer .credit{margin-top:.6rem;font-size:.75rem;color:#a8a29e}
-    footer .credit a{color:#818cf8;font-weight:700}
+    .promo{background:var(--navy);color:#fff;border-radius:24px;margin:0 auto 3rem;padding:2.4rem 1.6rem;text-align:center}
+    .promo h2{font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:800;margin-bottom:.6rem}
+    .promo p{color:#cbd5e1;max-width:520px;margin:0 auto 1.6rem}
+
+    footer{background:var(--gris-claro);color:var(--gris);text-align:center;padding:2.2rem 1rem;font-size:.85rem;border-top:1px solid var(--borde)}
+    footer strong{color:var(--navy)}
+    footer .credit{margin-top:.6rem;font-size:.75rem;color:#94a3b8}
+    footer .credit a{color:var(--teal-osc);font-weight:700}
 
     @media(min-width:640px){
       .grid{grid-template-columns:repeat(3,1fr);gap:1.2rem}
       .toolbar__inner{flex-direction:row;align-items:center}
       .search{max-width:340px;flex-shrink:0}
       .card__img{height:130px}
+      .trust{gap:1.6rem 2rem}
     }
-    @media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr)}}
+    @media(min-width:900px){
+      .hero__grid{grid-template-columns:1.15fr .85fr}
+      .grid{grid-template-columns:repeat(4,1fr)}
+    }
   </style>
 </head>
 <body>
   <div class="demo-bar">🧪 Sitio de demostración creado por <a href="../index.html#portafolio">ClicDirecto Soluciones HV</a> — Así se vería el catálogo de tu negocio</div>
+  <div class="util-bar">🚚 Recoge en tienda hoy mismo · Pedidos por WhatsApp sin comisión</div>
 
   <header class="top">
     <div class="container top__inner">
@@ -87,7 +124,7 @@
         <div class="brand__icon">🔧</div>
         <div>Ferretería El Tornillo Feliz<small>Catálogo digital · Precios actualizados</small></div>
       </div>
-      <a class="top__wa" href="https://wa.me/525610853003?text=Hola%2C%20vi%20la%20demo%20de%20cat%C3%A1logo%20y%20quiero%20uno%20para%20mi%20negocio" target="_blank" rel="noopener">
+      <a class="btn btn--wa" href="https://wa.me/525610853003?text=Hola%2C%20vi%20la%20demo%20de%20cat%C3%A1logo%20y%20quiero%20uno%20para%20mi%20negocio" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
         Pedir por WhatsApp
       </a>
@@ -95,13 +132,33 @@
   </header>
 
   <section class="hero">
-    <div class="container">
-      <h1>Todo para tu obra, <span>a un clic de distancia</span></h1>
-      <p>Consulta precios y existencias sin salir de casa. Haz tu pedido por WhatsApp y recógelo en tienda.</p>
+    <div class="container hero__grid">
+      <div>
+        <span class="hero__badge">Catálogo digital</span>
+        <h1>Todo para tu obra, <span>a un clic de distancia</span></h1>
+        <p>Consulta precios y existencias sin salir de casa. Haz tu pedido por WhatsApp y recógelo en tienda.</p>
+        <div class="hero__actions">
+          <a class="btn btn--teal" href="#catalogo">Ver Catálogo</a>
+          <a class="btn btn--outline" href="https://wa.me/525610853003?text=Hola%2C%20vi%20la%20demo%20de%20cat%C3%A1logo%20y%20quiero%20uno%20para%20mi%20negocio" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        </div>
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Precios actualizados</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Recoge en tienda</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Atención por WhatsApp</span>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <div class="hero__panel-grid">
+          <div class="hero__mini"><span class="emoji">🛠️</span><strong>Herramientas</strong><span>+6 productos</span></div>
+          <div class="hero__mini"><span class="emoji">🔌</span><strong>Eléctrico</strong><span>+4 productos</span></div>
+          <div class="hero__mini"><span class="emoji">🚿</span><strong>Plomería</strong><span>+4 productos</span></div>
+          <div class="hero__mini"><span class="emoji">🎨</span><strong>Pinturas</strong><span>+4 productos</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="toolbar">
+  <div class="toolbar" id="catalogo">
     <div class="container toolbar__inner">
       <div class="search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -119,8 +176,18 @@
   </div>
 
   <main class="container">
+    <div class="section-label">
+      <h2>Nuestro catálogo</h2>
+      <p>Precios en pesos mexicanos (MXN) · Sujetos a existencia</p>
+    </div>
     <div class="grid" id="grid"></div>
     <p class="empty" id="empty">No encontramos productos con esa búsqueda 🔍</p>
+
+    <div class="promo">
+      <h2>¿No encuentras lo que buscas?</h2>
+      <p>Escríbenos por WhatsApp y te confirmamos existencia y precio al momento.</p>
+      <a class="btn btn--wa" style="padding:.9rem 1.8rem;font-size:.92rem" href="https://wa.me/525610853003?text=Hola%2C%20busco%20un%20producto%20que%20no%20veo%20en%20el%20cat%C3%A1logo" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+    </div>
   </main>
 
   <footer>
@@ -130,21 +197,21 @@
 
   <script>
     const productos = [
-      { n:'Taladro Percutor 1/2" 650W', c:'herramientas', p:1189, e:'🛠️' },
+      { n:'Taladro Percutor 1/2" 650W', c:'herramientas', p:1189, e:'🛠️', b:'vendido' },
       { n:'Juego de Desarmadores 12 pzas', c:'herramientas', p:249, e:'🪛' },
       { n:'Martillo de Uña 16 oz', c:'herramientas', p:159, e:'🔨' },
       { n:'Flexómetro 5 m Antiimpacto', c:'herramientas', p:89, e:'📏' },
       { n:'Pinza de Presión 10"', c:'herramientas', p:135, e:'🗜️' },
-      { n:'Esmeriladora Angular 4 1/2"', c:'herramientas', p:849, e:'⚙️' },
+      { n:'Esmeriladora Angular 4 1/2"', c:'herramientas', p:849, e:'⚙️', b:'nuevo' },
       { n:'Cable THW Cal. 12 (metro)', c:'electrico', p:14, e:'🔌' },
-      { n:'Foco LED 9W Luz Fría (2 pzas)', c:'electrico', p:59, e:'💡' },
+      { n:'Foco LED 9W Luz Fría (2 pzas)', c:'electrico', p:59, e:'💡', b:'vendido' },
       { n:'Contacto Dúplex con Placa', c:'electrico', p:42, e:'🔋' },
       { n:'Extensión Uso Rudo 10 m', c:'electrico', p:189, e:'🧵' },
       { n:'Tubo PVC Hidráulico 1/2" (tramo)', c:'plomeria', p:78, e:'🚿' },
-      { n:'Llave Mezcladora para Fregadero', c:'plomeria', p:389, e:'🚰' },
+      { n:'Llave Mezcladora para Fregadero', c:'plomeria', p:389, e:'🚰', b:'nuevo' },
       { n:'Cinta Teflón 3/4"', c:'plomeria', p:12, e:'🎗️' },
       { n:'Bomba Periférica 1/2 HP', c:'plomeria', p:1290, e:'💧' },
-      { n:'Pintura Vinílica Blanca 4 L', c:'pinturas', p:319, e:'🎨' },
+      { n:'Pintura Vinílica Blanca 4 L', c:'pinturas', p:319, e:'🎨', b:'vendido' },
       { n:'Esmalte Anticorrosivo Negro 1 L', c:'pinturas', p:145, e:'🖌️' },
       { n:'Rodillo con Charola Kit', c:'pinturas', p:99, e:'🧻' },
       { n:'Impermeabilizante 5 Años 19 L', c:'pinturas', p:1150, e:'☔' },
@@ -154,6 +221,7 @@
       { n:'Clavo para Concreto 2" (kg)', c:'fijacion', p:52, e:'📌' },
     ];
     const nombres = { herramientas:'Herramientas', electrico:'Eléctrico', plomeria:'Plomería', pinturas:'Pinturas', fijacion:'Fijación' };
+    const badges = { vendido: '<span class="card__badge card__badge--vendido">Más vendido</span>', nuevo: '<span class="card__badge card__badge--nuevo">Nuevo</span>' };
     const grid = document.getElementById('grid');
     const empty = document.getElementById('empty');
     const buscador = document.getElementById('buscador');
@@ -166,6 +234,7 @@
       );
       grid.innerHTML = lista.map(p => `
         <article class="card">
+          ${p.b ? badges[p.b] : ''}
           <div class="card__img">${p.e}</div>
           <div class="card__body">
             <span class="card__cat">${nombres[p.c]}</span>
