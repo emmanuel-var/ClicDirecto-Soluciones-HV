@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Móvil de Ventas Offline-First — Demo Interactiva</title>
+  <meta name="description" content="Demo interactiva de app móvil de ventas offline-first creada por ClicDirecto Soluciones HV.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primario:#4f46e5; --violeta:#7c3aed; --verde:#10b981; --rojo:#f43f5e;
+      --oscuro:#0f172a; --texto:#334155; --gris:#64748b; --borde:#e2e8f0; --fondo:#f1f5f9;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,var(--oscuro),#1e1b4b 60%,#312e81);min-height:100vh;color:#fff;line-height:1.55}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none}
+
+    .demo-bar{background:#4f46e5;color:#fff;font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
+    .demo-bar a{text-decoration:underline;font-weight:800}
+
+    .wrap{width:min(100% - 2rem,1060px);margin-inline:auto;padding:2.5rem 0 3.5rem;display:flex;flex-direction:column;gap:2.5rem;align-items:center}
+
+    .info{text-align:center;max-width:520px}
+    .info h1{font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:900;line-height:1.2;margin-bottom:.8rem}
+    .info h1 span{color:#6ee7b7}
+    .info p{color:#c7d2fe;font-size:.95rem;margin-bottom:1.4rem}
+    .info__tips{display:flex;flex-direction:column;gap:.55rem;text-align:left;font-size:.88rem}
+    .info__tips li{list-style:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:.65rem .9rem;border-radius:12px}
+    .cta{display:inline-block;margin-top:1.6rem;background:var(--verde);color:#fff;font-weight:800;padding:.85rem 1.8rem;border-radius:999px;box-shadow:0 10px 25px rgba(16,185,129,.4);transition:.25s}
+    .cta:hover{transform:translateY(-2px)}
+
+    /* Teléfono */
+    .phone{width:340px;max-width:100%;background:#0b1120;border-radius:44px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 0 0 2px #1e293b;flex-shrink:0}
+    .phone__screen{background:var(--fondo);border-radius:34px;overflow:hidden;height:620px;display:flex;flex-direction:column;color:var(--texto);position:relative}
+    .phone__notch{height:26px;background:var(--oscuro);display:flex;align-items:center;justify-content:center}
+    .phone__notch::after{content:'';width:80px;height:8px;border-radius:8px;background:#1e293b}
+
+    .app-head{background:linear-gradient(120deg,var(--primario),var(--violeta));color:#fff;padding:.9rem 1rem .8rem}
+    .app-head__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+    .app-head h2{font-size:1rem;font-weight:800}
+    .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.66rem;font-weight:800;padding:.28rem .7rem;border-radius:999px;transition:.3s}
+    .badge__dot{width:7px;height:7px;border-radius:50%}
+    .badge--off{background:#fee2e2;color:#b91c1c}
+    .badge--off .badge__dot{background:#ef4444;animation:parp 1.3s infinite}
+    .badge--on{background:#d1fae5;color:#047857}
+    .badge--on .badge__dot{background:#10b981}
+    @keyframes parp{50%{opacity:.3}}
+    .app-head__stats{display:flex;gap:1.2rem;font-size:.68rem;color:#e0e7ff}
+    .app-head__stats strong{display:block;font-size:.95rem;color:#fff}
+
+    .app-body{flex-grow:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.6rem}
+    .prod{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:.7rem .8rem;display:flex;align-items:center;gap:.7rem}
+    .prod__emoji{width:40px;height:40px;border-radius:10px;background:#eef2ff;display:grid;place-items:center;font-size:1.25rem;flex-shrink:0}
+    .prod__info{flex-grow:1;min-width:0}
+    .prod__name{font-size:.8rem;font-weight:700;color:var(--oscuro);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .prod__price{font-size:.75rem;font-weight:800;color:var(--primario)}
+    .prod__add{width:32px;height:32px;border-radius:9px;background:var(--primario);color:#fff;font-size:1.1rem;font-weight:800;display:grid;place-items:center;transition:.15s;flex-shrink:0}
+    .prod__add:active{transform:scale(.88)}
+
+    .app-cart{background:#fff;border-top:1px solid var(--borde);padding:.8rem .9rem;box-shadow:0 -6px 16px rgba(15,23,42,.06)}
+    .app-cart__row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;font-size:.8rem}
+    .app-cart__row strong{font-size:1.05rem;color:var(--oscuro)}
+    .app-cart__count{color:var(--gris)}
+    .btn-save{width:100%;padding:.75rem;border-radius:12px;background:var(--oscuro);color:#fff;font-weight:800;font-size:.85rem;transition:.2s}
+    .btn-save:disabled{opacity:.4;cursor:not-allowed}
+
+    .pendientes{margin-top:.55rem;font-size:.7rem;font-weight:700;color:#b45309;background:#fef3c7;border:1px solid #fde68a;border-radius:10px;padding:.45rem .7rem;display:none;align-items:center;gap:.4rem}
+    .pendientes.show{display:flex}
+
+    .toast{position:absolute;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);background:var(--oscuro);color:#fff;font-size:.72rem;font-weight:700;padding:.55rem 1rem;border-radius:999px;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;z-index:10}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .toast--ok{background:var(--verde)}
+
+    .controls{margin-top:1.1rem;display:flex;justify-content:center}
+    .toggle{display:inline-flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:.7rem 1.3rem;border-radius:999px;color:#fff;font-weight:700;font-size:.88rem;transition:.25s}
+    .toggle:hover{background:rgba(255,255,255,.15)}
+    .toggle__sw{width:44px;height:24px;border-radius:999px;background:#ef4444;position:relative;transition:.3s}
+    .toggle__sw::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.3s}
+    .toggle.on .toggle__sw{background:var(--verde)}
+    .toggle.on .toggle__sw::after{left:23px}
+
+    @media(min-width:900px){
+      .wrap{flex-direction:row;justify-content:space-between;align-items:center}
+      .info{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">🧪 Demo interactiva creada por <a href="../index.html#portafolio">ClicDirecto Soluciones HV</a> — Pruébala: registra ventas sin internet</div>
+
+  <div class="wrap">
+    <div class="info">
+      <h1>Tu punto de venta funciona <span>aunque no haya señal</span></h1>
+      <p>Esta es una simulación real de cómo trabaja una app Offline-First: las ventas se guardan en el dispositivo y se sincronizan solas al volver la conexión.</p>
+      <ul class="info__tips">
+        <li>1️⃣ Agrega productos con el botón <strong>+</strong> y guarda la venta.</li>
+        <li>2️⃣ La app está <strong>sin internet</strong>: la venta queda pendiente en el teléfono.</li>
+        <li>3️⃣ Activa la conexión con el interruptor y mira cómo <strong>se sincroniza sola</strong>.</li>
+      </ul>
+      <div class="controls">
+        <button class="toggle" id="toggleNet" aria-pressed="false">
+          <span class="toggle__sw"></span>
+          <span id="toggleTxt">Sin internet — actívalo para sincronizar</span>
+        </button>
+      </div>
+      <a class="cta" href="https://wa.me/525610853003?text=Hola%2C%20prob%C3%A9%20la%20demo%20de%20la%20app%20de%20ventas%20y%20quiero%20una%20para%20mi%20negocio" target="_blank" rel="noopener">Quiero una app así →</a>
+    </div>
+
+    <div class="phone">
+      <div class="phone__screen">
+        <div class="phone__notch"></div>
+        <div class="app-head">
+          <div class="app-head__top">
+            <h2>VentasGo · Ruta 7</h2>
+            <span class="badge badge--off" id="netBadge"><span class="badge__dot"></span><span id="netTxt">Offline</span></span>
+          </div>
+          <div class="app-head__stats">
+            <div><strong id="statHoy">$0</strong>vendido hoy</div>
+            <div><strong id="statVentas">0</strong>ventas</div>
+            <div><strong id="statSync">0</strong>por sincronizar</div>
+          </div>
+        </div>
+
+        <div class="app-body" id="lista"></div>
+
+        <div class="app-cart">
+          <div class="app-cart__row">
+            <span class="app-cart__count" id="carritoCount">Carrito vacío</span>
+            <strong id="carritoTotal">$0</strong>
+          </div>
+          <button class="btn-save" id="btnGuardar" disabled>Guardar venta</button>
+          <div class="pendientes" id="pendientes">⏳ <span id="pendientesTxt"></span></div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const catalogo = [
+      { n:'Refresco Cola 600 ml', p:19, e:'🥤' },
+      { n:'Sabritas Original 45 g', p:18, e:'🍟' },
+      { n:'Galletas Marías', p:15, e:'🍪' },
+      { n:'Agua Natural 1 L', p:14, e:'💧' },
+      { n:'Pan Blanco Grande', p:42, e:'🍞' },
+      { n:'Leche Entera 1 L', p:26, e:'🥛' },
+      { n:'Huevo (docena)', p:48, e:'🥚' },
+      { n:'Jabón de Tocador', p:17, e:'🧼' },
+    ];
+    let carrito = [], pendientes = [], online = false, totalHoy = 0, numVentas = 0;
+
+    const $ = id => document.getElementById(id);
+    const money = v => '$' + v.toLocaleString('es-MX');
+
+    // Render catálogo
+    $('lista').innerHTML = catalogo.map((p, i) => `
+      <div class="prod">
+        <div class="prod__emoji">${p.e}</div>
+        <div class="prod__info">
+          <div class="prod__name">${p.n}</div>
+          <div class="prod__price">${money(p.p)}</div>
+        </div>
+        <button class="prod__add" data-i="${i}" aria-label="Agregar ${p.n}">+</button>
+      </div>`).join('');
+
+    $('lista').addEventListener('click', e => {
+      const btn = e.target.closest('.prod__add');
+      if (!btn) return;
+      carrito.push(catalogo[btn.dataset.i]);
+      pintaCarrito();
+    });
+
+    function pintaCarrito() {
+      const total = carrito.reduce((s, p) => s + p.p, 0);
+      $('carritoTotal').textContent = money(total);
+      $('carritoCount').textContent = carrito.length
+        ? carrito.length + ' producto' + (carrito.length > 1 ? 's' : '')
+        : 'Carrito vacío';
+      $('btnGuardar').disabled = !carrito.length;
+    }
+
+    function toast(msg, ok) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.className = 'toast show' + (ok ? ' toast--ok' : '');
+      clearTimeout(t._h);
+      t._h = setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    function pintaStats() {
+      $('statHoy').textContent = money(totalHoy);
+      $('statVentas').textContent = numVentas;
+      $('statSync').textContent = pendientes.length;
+      const box = $('pendientes');
+      if (pendientes.length) {
+        box.classList.add('show');
+        $('pendientesTxt').textContent = pendientes.length + ' venta(s) guardada(s) en el teléfono, esperando conexión…';
+      } else {
+        box.classList.remove('show');
+      }
+    }
+
+    $('btnGuardar').addEventListener('click', () => {
+      const total = carrito.reduce((s, p) => s + p.p, 0);
+      totalHoy += total; numVentas++;
+      carrito = [];
+      pintaCarrito();
+      if (online) {
+        toast('✓ Venta sincronizada en la nube', true);
+      } else {
+        pendientes.push(total);
+        toast('💾 Sin señal: venta guardada localmente');
+      }
+      pintaStats();
+    });
+
+    $('toggleNet').addEventListener('click', function () {
+      online = !online;
+      this.classList.toggle('on', online);
+      this.setAttribute('aria-pressed', String(online));
+      const badge = $('netBadge');
+      badge.className = 'badge ' + (online ? 'badge--on' : 'badge--off');
+      $('netTxt').textContent = online ? 'Online' : 'Offline';
+      $('toggleTxt').textContent = online ? 'Con internet — apágalo para probar offline' : 'Sin internet — actívalo para sincronizar';
+      if (online && pendientes.length) {
+        const n = pendientes.length;
+        setTimeout(() => {
+          pendientes = [];
+          pintaStats();
+          toast('☁️ ' + n + ' venta(s) sincronizada(s) automáticamente', true);
+        }, 900);
+      }
+    });
+
+    pintaCarrito(); pintaStats();
+  </script>
+</body>
+</html>

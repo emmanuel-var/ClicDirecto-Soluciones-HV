@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estética Bella Vida | Belleza y bienestar — Demo</title>
+  <meta name="description" content="Demo de sitio web para estética con agenda de citas creada por ClicDirecto Soluciones HV.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#be185d; --rosa-suave:#fdf2f8; --rosa-med:#f9a8d4; --dorado:#b45309;
+      --oscuro:#27272a; --texto:#52525b; --borde:#fbcfe8; --blanco:#fff;
+      --serif:'Cormorant Garamond',serif; --sans:'Inter',system-ui,sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--blanco);color:var(--texto);line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer}
+    .container{width:min(100% - 2rem,1040px);margin-inline:auto}
+
+    .demo-bar{background:#4f46e5;color:#fff;font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
+    .demo-bar a{text-decoration:underline;font-weight:800}
+
+    header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);padding:.85rem 0}
+    .top__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:var(--rosa)}
+    .brand small{display:block;font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--dorado)}
+    .top__nav{display:none;gap:1.6rem;font-size:.88rem;font-weight:600}
+    .top__nav a:hover{color:var(--rosa)}
+    .btn{display:inline-block;font-weight:700;border-radius:999px;transition:.25s;text-align:center}
+    .btn--rosa{background:var(--rosa);color:#fff;padding:.65rem 1.5rem;font-size:.85rem;box-shadow:0 8px 20px rgba(190,24,93,.25)}
+    .btn--rosa:hover{transform:translateY(-2px);background:#9d174d}
+
+    .hero{background:linear-gradient(160deg,var(--rosa-suave),#fce7f3 60%,#fbcfe8);padding:4.5rem 0;text-align:center}
+    .hero__tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--dorado);margin-bottom:1rem}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.3rem,7vw,3.8rem);font-weight:700;color:var(--oscuro);line-height:1.1;margin-bottom:1rem}
+    .hero h1 em{color:var(--rosa);font-style:italic}
+    .hero p{max-width:520px;margin:0 auto 2rem}
+    .hero__acts{display:flex;flex-direction:column;gap:.8rem;align-items:center}
+    .btn--ghost{border:1.5px solid var(--rosa);color:var(--rosa);padding:.65rem 1.5rem;font-size:.85rem}
+    .btn--ghost:hover{background:var(--rosa);color:#fff}
+    .hero__rating{margin-top:2rem;font-size:.85rem;font-weight:600;color:var(--oscuro)}
+    .hero__rating span{color:#f59e0b;letter-spacing:.1em}
+
+    .section{padding:4rem 0}
+    .sec-tag{display:block;text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--dorado);margin-bottom:.6rem}
+    .sec-title{text-align:center;font-family:var(--serif);font-size:clamp(1.8rem,4.5vw,2.5rem);font-weight:700;color:var(--oscuro);margin-bottom:2.4rem}
+
+    .servicios{background:var(--blanco)}
+    .serv-grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
+    .serv{background:var(--rosa-suave);border:1px solid var(--borde);border-radius:20px;padding:1.6rem;text-align:center;transition:.25s}
+    .serv:hover{transform:translateY(-5px);box-shadow:0 16px 35px rgba(190,24,93,.13)}
+    .serv__emoji{font-size:2.2rem;margin-bottom:.7rem}
+    .serv h3{font-family:var(--serif);font-size:1.25rem;color:var(--oscuro);margin-bottom:.35rem}
+    .serv p{font-size:.87rem;margin-bottom:.7rem}
+    .serv strong{color:var(--rosa);font-size:1.02rem}
+
+    .cita{background:linear-gradient(160deg,#fdf2f8,#fce7f3)}
+    .cita__box{max-width:520px;margin:0 auto;background:#fff;border-radius:24px;padding:2.2rem 1.7rem;box-shadow:0 20px 50px rgba(190,24,93,.12)}
+    .cita__box h3{font-family:var(--serif);font-size:1.6rem;color:var(--oscuro);text-align:center;margin-bottom:.4rem}
+    .cita__box>p{text-align:center;font-size:.88rem;margin-bottom:1.6rem}
+    .campo{margin-bottom:1rem}
+    .campo label{display:block;font-size:.78rem;font-weight:700;color:var(--oscuro);margin-bottom:.35rem}
+    .campo input,.campo select{width:100%;padding:.7rem .9rem;border:1.5px solid var(--borde);border-radius:12px;font:inherit;font-size:.9rem;color:var(--texto);background:#fff;outline:none;transition:.2s}
+    .campo input:focus,.campo select:focus{border-color:var(--rosa)}
+    .cita__btn{width:100%;border:none;background:var(--rosa);color:#fff;font-weight:700;font-size:.95rem;padding:.9rem;border-radius:999px;transition:.25s;box-shadow:0 10px 24px rgba(190,24,93,.3)}
+    .cita__btn:hover{background:#9d174d;transform:translateY(-2px)}
+    .cita__ok{display:none;text-align:center;background:#ecfdf5;border:1.5px solid #a7f3d0;color:#047857;font-weight:600;font-size:.88rem;border-radius:14px;padding:1rem;margin-top:1rem}
+    .cita__ok.show{display:block}
+    .cita__nota{text-align:center;font-size:.72rem;color:#a1a1aa;margin-top:.9rem}
+
+    .maps{background:var(--blanco)}
+    .maps__grid{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+    .maps__card{background:var(--rosa-suave);border:1px solid var(--borde);border-radius:20px;padding:1.8rem}
+    .maps__card h3{font-family:var(--serif);font-size:1.3rem;color:var(--oscuro);margin-bottom:.8rem}
+    .maps__card ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem}
+    .maps__card a{color:var(--rosa);font-weight:700;text-decoration:underline}
+    .maps__fake{height:230px;border-radius:20px;background:linear-gradient(135deg,#d1fae5,#bfdbfe);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:#334155;font-weight:600;font-size:.85rem;border:1px solid #e2e8f0}
+    .maps__fake span{font-size:2.4rem}
+
+    footer.pie{background:var(--oscuro);color:#d4d4d8;text-align:center;padding:2.2rem 1rem;font-size:.85rem}
+    footer.pie strong{color:#fff;font-family:var(--serif);font-size:1.05rem}
+    footer.pie .credit{margin-top:.6rem;font-size:.75rem;color:#a1a1aa}
+    footer.pie .credit a{color:#a5b4fc;font-weight:700}
+
+    @media(min-width:640px){
+      .serv-grid{grid-template-columns:repeat(2,1fr)}
+      .hero__acts{flex-direction:row;justify-content:center}
+      .top__nav{display:flex}
+    }
+    @media(min-width:960px){
+      .serv-grid{grid-template-columns:repeat(3,1fr)}
+      .maps__grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">🧪 Sitio de demostración creado por <a href="../index.html#portafolio">ClicDirecto Soluciones HV</a> — Así se vería el sitio de tu negocio</div>
+
+  <header class="top">
+    <div class="container top__inner">
+      <div class="brand">Bella Vida<small>Estética & Spa</small></div>
+      <nav class="top__nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#cita">Agendar</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+      <a class="btn btn--rosa" href="#cita">Agendar cita</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero__tag">Tu momento de cuidarte</span>
+      <h1>Belleza que se nota,<br><em>confianza que se siente</em></h1>
+      <p>Cortes, color, uñas y tratamientos faciales con productos profesionales. Agenda tu cita en línea y olvídate de esperar.</p>
+      <div class="hero__acts">
+        <a class="btn btn--rosa" href="#cita">Reservar mi cita</a>
+        <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <p class="hero__rating"><span>★★★★★</span> 4.8 en Google · +250 clientas felices</p>
+    </div>
+  </section>
+
+  <section class="section servicios" id="servicios">
+    <div class="container">
+      <span class="sec-tag">Servicios</span>
+      <h2 class="sec-title">Lo que hacemos por ti</h2>
+      <div class="serv-grid">
+        <article class="serv"><div class="serv__emoji">💇‍♀️</div><h3>Corte & Peinado</h3><p>Asesoría de imagen incluida para encontrar tu estilo ideal.</p><strong>Desde $180</strong></article>
+        <article class="serv"><div class="serv__emoji">🎨</div><h3>Color & Mechas</h3><p>Balayage, babylights y matiz con productos libres de amoniaco.</p><strong>Desde $650</strong></article>
+        <article class="serv"><div class="serv__emoji">💅</div><h3>Uñas Gelish</h3><p>Manicure ruso, diseños personalizados y duración garantizada.</p><strong>Desde $250</strong></article>
+        <article class="serv"><div class="serv__emoji">✨</div><h3>Facial Hidratante</h3><p>Limpieza profunda + mascarilla según tu tipo de piel.</p><strong>Desde $380</strong></article>
+        <article class="serv"><div class="serv__emoji">👰</div><h3>Paquete Novias</h3><p>Prueba de maquillaje y peinado + servicio el día del evento.</p><strong>Desde $1,800</strong></article>
+        <article class="serv"><div class="serv__emoji">🧖‍♀️</div><h3>Keratina & Alaciado</h3><p>Cabello suave, brillante y sin frizz hasta por 4 meses.</p><strong>Desde $900</strong></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cita" id="cita">
+    <div class="container">
+      <span class="sec-tag">Reserva en línea</span>
+      <h2 class="sec-title">Agenda tu cita</h2>
+      <div class="cita__box">
+        <h3>Reserva en 30 segundos</h3>
+        <p>Elige tu servicio y te confirmamos por WhatsApp.</p>
+        <form id="formCita">
+          <div class="campo">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" required placeholder="Ej. María González">
+          </div>
+          <div class="campo">
+            <label for="servicio">Servicio</label>
+            <select id="servicio" required>
+              <option value="">Selecciona…</option>
+              <option>Corte & Peinado</option>
+              <option>Color & Mechas</option>
+              <option>Uñas Gelish</option>
+              <option>Facial Hidratante</option>
+              <option>Paquete Novias</option>
+              <option>Keratina & Alaciado</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="fecha">Fecha y hora preferida</label>
+            <input type="datetime-local" id="fecha" required>
+          </div>
+          <button type="submit" class="cita__btn">Enviar solicitud por WhatsApp 💬</button>
+          <div class="cita__ok" id="citaOk">✓ ¡Listo! Se abrirá WhatsApp con tu solicitud prellenada.</div>
+          <p class="cita__nota">Demo funcional: el formulario arma el mensaje y lo envía por WhatsApp.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section maps" id="ubicacion">
+    <div class="container">
+      <span class="sec-tag">Encuéntranos</span>
+      <h2 class="sec-title">Estamos en Google Maps</h2>
+      <div class="maps__grid">
+        <div class="maps__fake"><span>📍</span>Aquí iría el mapa interactivo de Google Maps<small>(se integra con el perfil real del negocio)</small></div>
+        <div class="maps__card">
+          <h3>Estética Bella Vida</h3>
+          <ul>
+            <li>📍 Calle de las Flores #78, Col. Jardines</li>
+            <li>🕐 Lun–Sáb · 10:00 am – 8:00 pm</li>
+            <li>📱 WhatsApp: 56 1085 3003</li>
+            <li>⭐ Perfil optimizado: <a href="https://maps.google.com" target="_blank" rel="noopener">ver en Google Maps</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <p><strong>Bella Vida</strong> · Estética & Spa · Calle de las Flores #78</p>
+    <p class="credit">Sitio de demostración — Diseñado por <a href="../index.html">ClicDirecto Soluciones HV</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('formCita').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const fecha = document.getElementById('fecha').value;
+      const f = fecha ? new Date(fecha).toLocaleString('es-MX', { dateStyle: 'long', timeStyle: 'short' }) : '';
+      const msg = `Hola, soy ${nombre}. Quiero agendar: ${servicio} para el ${f}. (Demo Bella Vida)`;
+      document.getElementById('citaOk').classList.add('show');
+      window.open('https://wa.me/525610853003?text=' + encodeURIComponent(msg), '_blank');
+    });
+  </script>
+</body>
+</html>
